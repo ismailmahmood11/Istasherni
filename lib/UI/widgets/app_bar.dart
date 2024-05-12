@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:istasherni/UI/Screens/Landing_Page/landing_page.dart';
-import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 import '../Screens/Landing_Page/Widgets/navigation_bar.dart';
 import '../const.dart';
@@ -15,17 +14,6 @@ class AppBarMain extends StatefulWidget {
 
 class _AppBarMainState extends State<AppBarMain> {
   double scrollPosition = 0;
-
-  // Controllers
-  late ScrollController _scrollController;
-
-  @override
-  void initState() {
-    // initialize scroll controllers
-    _scrollController = ScrollController();
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,17 +32,11 @@ class _AppBarMainState extends State<AppBarMain> {
 
               return true;
             },
-            child: WebSmoothScroll(
-              scrollOffset: 10,
-              controller: _scrollController,
-              child: SingleChildScrollView(
-                physics: const NeverScrollableScrollPhysics(),
-                controller: _scrollController,
-                child: const Column(
-                  children: [
-                    LandingPage(),
-                  ],
-                ),
+            child: const SingleChildScrollView(
+              child: Column(
+                children: [
+                  LandingPage(),
+                ],
               ),
             ),
           ),
