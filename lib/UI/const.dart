@@ -10,3 +10,5 @@ const double p = 19;
 double padding1 = 10;
 
 const int animationDuration = 150;
+
+const double gap = 40;

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:istasherni/UI/Screens/Landing_Page/widgets/case_widget.dart';
+import 'package:istasherni/UI/Screens/Landing_Page/widgets/more_button.dart';
 import 'package:istasherni/UI/const.dart';
-import 'package:istasherni/UI/widgets/on_hover.dart';
 
-import 'Widgets/hero_section.dart';
+import 'Sections/hero_section.dart';
+import 'Sections/istasherni_intro.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -12,7 +13,9 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     double h1 = screenWidth / 30;
+    double h2 = screenWidth / 50;
     double p = screenWidth / 90;
     screenWidth >= 1300 ? p = 20 : p = screenWidth / 90;
 
@@ -20,63 +23,63 @@ class LandingPage extends StatelessWidget {
       children: [
         const Gap(120),
         HeroSection(),
+        IstasherniIntro(h1: h1, p: p),
         Container(
           width: double.infinity,
-          height: 533,
-          decoration: const BoxDecoration(color: secondaryColor),
+          padding: EdgeInsets.symmetric(horizontal: screenWidth / padding1),
+          color: Colors.white,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Gap(gap),
               Text(
-                'We Help You With Quality Legal Lawyer',
-                style: GoogleFonts.dmSerifDisplay(
-                  color: Colors.white,
+                'Cases',
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: p,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const Gap(gap),
+              Text(
+                'Cases we’ve\nhandled in the past',
+                style: TextStyle(
+                  color: textColor,
                   fontSize: h1,
-                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Helvetica Neue LT Arabic',
+                  fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(
-                width: 1062,
-                child: Text(
-                  'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. Duis lectus gravida ultricies eleifend in pharetra faucibus orci sem. ',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.inter(
-                    color: Colors.white,
-                    fontSize: p,
-                    fontWeight: FontWeight.w300,
+              const Gap(60),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CaseWidget(
+                    title:
+                        'The Case of William Accused Corruption of Money at Gony Bank',
+                    subTitle:
+                        'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. ',
                   ),
-                ),
-              ),
-              HoverBuilder(builder: (onHover) {
-                return AnimatedContainer(
-                  duration: const Duration(milliseconds: animationDuration),
-                  width: onHover ? 265 : 250,
-                  height: onHover ? 53 : 47,
-                  padding: const EdgeInsets.all(10),
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Get Started',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.inter(
-                        color: textColor,
-                        fontSize: p,
-                        fontWeight: FontWeight.w400,
-                        height: 0,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      MoreButton(title: 'See More'),
+                      const Gap(70),
+                      CaseWidget(
+                        title:
+                            'The Case of William Accused Corruption of Money at Gony Bank',
+                        subTitle:
+                            'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. ',
                       ),
-                    ),
+                    ],
                   ),
-                );
-              })
+                ],
+              ),
+              const Gap(gap),
             ],
           ),
         ),
-        const Gap(300),
       ],
     );
   }

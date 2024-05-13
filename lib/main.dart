@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:istasherni/Cubit/SrollPosition/scroll_position_cubit.dart';
 import 'package:istasherni/UI/const.dart';
 import 'package:istasherni/UI/widgets/app_bar.dart';
 
@@ -9,16 +11,20 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Istasherni',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: mainThemeColor),
-        useMaterial3: true,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => ScrollPositionCubit()),
+      ],
+      child: MaterialApp(
+        title: 'Istasherni',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: mainThemeColor),
+          useMaterial3: true,
+        ),
+        home: const AppBarMain(),
       ),
-      home: const AppBarMain(),
     );
   }
 }

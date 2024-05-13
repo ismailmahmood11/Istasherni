@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:istasherni/UI/const.dart';
-import 'package:istasherni/UI/widgets/on_hover.dart';
+
+import '../widgets/main_button.dart';
+import '../widgets/more_button.dart';
 
 class HeroSection extends StatelessWidget {
   HeroSection({super.key});
@@ -94,63 +96,11 @@ class HeroSection extends StatelessWidget {
                   Gap(gap),
                   Row(
                     children: [
-                      HoverBuilder(builder: (onHover) {
-                        return AnimatedContainer(
-                          duration:
-                              const Duration(milliseconds: animationDuration),
-                          width: onHover ? 175 : 170,
-                          height: onHover ? 52 : 50,
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: onHover
-                                    ? Colors.black54
-                                    : Colors.transparent,
-                                blurRadius: 5,
-                              ),
-                            ],
-                            color: mainThemeColor,
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              'Consult Now',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        );
-                      }),
+                      MainButton(
+                        title: 'Consult Now',
+                      ),
                       Gap(gap),
-                      HoverBuilder(builder: (onHover) {
-                        return Row(
-                          children: [
-                            const Text(
-                              'Explore',
-                              style: TextStyle(
-                                color: Color(0xFF333333),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                height: 0.07,
-                              ),
-                            ),
-                            AnimatedContainer(
-                              duration: const Duration(
-                                  milliseconds: animationDuration),
-                              width: onHover ? 3 : 0,
-                              height: 5,
-                            ),
-                            const Icon(
-                              Icons.arrow_right_sharp,
-                              color: Color(0xFF333333),
-                              size: 27,
-                            ),
-                          ],
-                        );
-                      })
+                      MoreButton(title: 'Explore'),
                     ],
                   ),
                   Gap(gap),
@@ -236,7 +186,7 @@ class HeroSection extends StatelessWidget {
                                   style: GoogleFonts.inter(
                                     color: textColor,
                                     fontSize: p - 3,
-                                    fontWeight: FontWeight.w400,
+                                    fontWeight: FontWeight.w700,
                                   ),
                                 ),
                                 const Gap(20),
@@ -258,7 +208,7 @@ class HeroSection extends StatelessWidget {
                                   style: GoogleFonts.inter(
                                     color: textColor,
                                     fontSize: p - 3,
-                                    fontWeight: FontWeight.w400,
+                                    fontWeight: FontWeight.w700,
                                   ),
                                 ),
                                 const Gap(20),
