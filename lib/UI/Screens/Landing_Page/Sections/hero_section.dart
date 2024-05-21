@@ -10,26 +10,6 @@ import '../widgets/more_button.dart';
 class HeroSection extends StatelessWidget {
   HeroSection({super.key});
 
-  ExpandableThemeData expandableThemeData = const ExpandableThemeData(
-    useInkWell: false,
-    headerAlignment: ExpandablePanelHeaderAlignment.center,
-    tapBodyToCollapse: true,
-    tapBodyToExpand: true,
-    iconSize: 25,
-    expandIcon: Icons.arrow_forward,
-    collapseIcon: Icons.arrow_forward,
-    iconRotationAngle: -1,
-    iconPlacement: ExpandablePanelIconPlacement.left,
-    iconPadding: EdgeInsets.only(right: 10),
-    iconColor: textColor,
-  );
-
-  TextStyle expandableTextStyle = const TextStyle(
-    color: Color(0xFF333333),
-    fontSize: p - 4,
-    fontWeight: FontWeight.w700,
-  );
-
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -40,6 +20,28 @@ class HeroSection extends StatelessWidget {
     double p = screenWidth / 90;
 
     double gap = 40;
+
+    double pSize = screenWidth / 90;
+
+    ExpandableThemeData expandableThemeData = const ExpandableThemeData(
+      useInkWell: false,
+      headerAlignment: ExpandablePanelHeaderAlignment.center,
+      tapBodyToCollapse: true,
+      tapBodyToExpand: true,
+      iconSize: 25,
+      expandIcon: Icons.arrow_forward,
+      collapseIcon: Icons.arrow_forward,
+      iconRotationAngle: -1,
+      iconPlacement: ExpandablePanelIconPlacement.left,
+      iconPadding: EdgeInsets.only(right: 10),
+      iconColor: textColor,
+    );
+
+    TextStyle expandableTextStyle = TextStyle(
+      color: textColor,
+      fontSize: pSize - 4,
+      fontWeight: FontWeight.w700,
+    );
 
     return SizedBox(
       width: double.infinity,

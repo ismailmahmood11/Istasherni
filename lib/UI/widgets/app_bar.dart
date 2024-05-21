@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -8,8 +10,31 @@ import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
 import '../const.dart';
 import 'navigation_bar.dart';
 
-class AppBarMain extends StatelessWidget {
+class AppBarMain extends StatefulWidget {
   const AppBarMain({super.key});
+
+  @override
+  State<AppBarMain> createState() => _AppBarMainState();
+}
+
+class _AppBarMainState extends State<AppBarMain> {
+  bool isMousePad = false;
+
+  void _handlePointerEvent(PointerEvent event) {
+    if (event.kind == PointerDeviceKind.mouse) {
+      setState(() {
+        isMousePad = false;
+      });
+    } else if (event.kind == PointerDeviceKind.touch) {
+      setState(() {
+        isMousePad = true;
+      });
+    } else {
+      setState(() {
+        isMousePad = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,27 +43,38 @@ class AppBarMain extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          NotificationListener(
-            onNotification: (notification) {
-              if (notification is ScrollUpdateNotification) {
-                context
-                    .read<ScrollPositionCubit>()
-                    .scrollPosition(notification.metrics.pixels);
-              }
+          Listener(
+            onPointerDown: _handlePointerEvent,
+            child: NotificationListener(
+              onNotification: (notification) {
+                if (notification is ScrollUpdateNotification) {
+                  context
+                      .read<ScrollPositionCubit>()
+                      .scrollPosition(notification.metrics.pixels);
+                }
 
-              return true;
-            },
-            child: DynMouseScroll(builder: (context, controller, physics) {
-              return SingleChildScrollView(
-                controller: controller,
-                physics: physics,
-                child: const Column(
-                  children: [
-                    LandingPage(),
-                  ],
-                ),
-              );
-            }),
+                return true;
+              },
+              child: isMousePad
+                  ? const SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          LandingPage(),
+                        ],
+                      ),
+                    )
+                  : DynMouseScroll(
+                      durationMS: 600,
+                      builder: (context, controller, physics) {
+                        return ListView(
+                          controller: controller,
+                          physics: physics,
+                          children: const [
+                            LandingPage(),
+                          ],
+                        );
+                      }),
+            ),
           ),
           BlocBuilder<ScrollPositionCubit, ScrollPositionInitial>(
             builder: (context, state) {
@@ -64,7 +100,7 @@ class AppBarMain extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Image.asset(
-                        'assets/images/istasherni_logo.png',
+                        'assets/images/logo/istasherni_logo.png',
                         width: 180,
                       ),
                       AppBarNavigationBar(),
