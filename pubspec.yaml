@@ -38,11 +38,12 @@ dependencies:
   google_fonts: ^6.2.1
   gap: ^3.0.1
   expandable: ^5.0.1
-  web_smooth_scroll: ^1.1.0
-  smooth_scroll_multiplatform: ^1.0.8
+  dyn_mouse_scroll: ^1.0.7
+
   bloc: ^8.1.4
   flutter_bloc: ^8.1.5
   ionicons: ^0.2.2
+  animate_do: ^3.3.4
 
 dev_dependencies:
   flutter_test:

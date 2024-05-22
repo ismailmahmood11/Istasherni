@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../const.dart';
-import '../../../widgets/on_hover.dart';
+import '../../const.dart';
+import '../../widgets/on_hover.dart';
 
 class IstasherniIntro extends StatelessWidget {
-  const IstasherniIntro({
+  IstasherniIntro({
     super.key,
     required this.h1,
     required this.p,
+    this.backgroundColor = primaryThemeColor,
   });
 
   final double h1;
   final double p;
+  Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: 533,
-      decoration: const BoxDecoration(color: secondaryColor),
+      color: backgroundColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

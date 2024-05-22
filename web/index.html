@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <!--
       If you are serving your web app in a path other than the root, change the
@@ -34,8 +34,29 @@
     <link rel="manifest" href="manifest.json">
 
     <script>
+        function isTouchpad(event) {
+            if (event.pointerType === 'touch') {
+                return true;
+            }
+            if (event.pointerType === 'mouse') {
+                return false;
+            }
+            // Additional logic can be added here if needed
+        }
+
+        function listenForScrollEvents() {
+            window.addEventListener('pointermove', function(event) {
+                const touchpad = isTouchpad(event);
+                window.postMessage({ type: 'touchpadDetection', touchpad: touchpad }, '*');
+            });
+        }
+
+        window.onload = listenForScrollEvents;
+    </script>
+
+    <script>
         // The value below is injected by flutter build, do not touch.
-        const serviceWorkerVersion = null;
+        const serviceWorkerVersion = "3616249863";
     </script>
     <!-- This script adds the flutter initialization JS code -->
     <script src="flutter.js" defer></script>

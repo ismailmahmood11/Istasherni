@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../const.dart';
+import '../../const.dart';
 
 class ReviewSection extends StatelessWidget {
   const ReviewSection({
@@ -19,6 +19,7 @@ class ReviewSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.white,
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: screenWidth / padding1),
       child: Column(

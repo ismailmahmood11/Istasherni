@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
 import 'package:istasherni/Cubit/SrollPosition/scroll_position_cubit.dart';
 import 'package:istasherni/UI/const.dart';
 import 'package:istasherni/UI/widgets/app_bar.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => ScrollPositionCubit()),
+        BlocProvider(create: (context) => PageRoutingCubit()),
       ],
       child: MaterialApp(
         title: 'Istasherni',
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: mainThemeColor),
           useMaterial3: true,
         ),
-        home: const AppBarMain(),
+        home: AppBarMain(),
       ),
     );
   }
