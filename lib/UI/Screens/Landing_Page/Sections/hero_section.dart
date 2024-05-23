@@ -8,7 +8,7 @@ import '../widgets/main_button.dart';
 import '../widgets/more_button.dart';
 
 class HeroSection extends StatelessWidget {
-  HeroSection({super.key});
+  const HeroSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -100,9 +100,13 @@ class HeroSection extends StatelessWidget {
                     children: [
                       MainButton(
                         title: 'Consult Now',
+                        onTap: () {},
                       ),
                       Gap(gap),
-                      MoreButton(title: 'Explore'),
+                      MoreButton(
+                        title: 'Explore',
+                        onTap: () {},
+                      ),
                     ],
                   ),
                   Gap(gap),

@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../const.dart';
 import '../../widgets/on_hover.dart';
 
+//ignore: must_be_immutable
 class IstasherniIntro extends StatelessWidget {
   IstasherniIntro({
     super.key,

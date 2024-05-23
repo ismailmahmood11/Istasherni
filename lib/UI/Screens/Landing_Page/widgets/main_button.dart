@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import '../../../const.dart';
 import '../../../widgets/on_hover.dart';
 
+//ignore: must_be_immutable
 class MainButton extends StatelessWidget {
   MainButton({
     required this.title,
-    this.onTap,
+    required this.onTap,
     super.key,
   });
 
   String title;
-  var onTap;
+  Function() onTap;
 
   @override
   Widget build(BuildContext context) {

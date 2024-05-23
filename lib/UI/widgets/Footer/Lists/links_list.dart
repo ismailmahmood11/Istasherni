@@ -74,11 +74,11 @@ List<FooterLinks> footerLinks = [
 
 //
 
-//
+//ignore: must_be_immutable
 class LinkText extends StatelessWidget {
   LinkText({required this.page, required this.link, super.key});
 
-  var page;
+  dynamic page;
   String link;
 
   @override

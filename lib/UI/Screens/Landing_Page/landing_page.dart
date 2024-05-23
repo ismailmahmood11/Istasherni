@@ -16,7 +16,7 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double h1 = screenWidth / h1Size;
-    double h2 = screenWidth / h2Size;
+    // double h2 = screenWidth / h2Size;
     double p = screenWidth / pSize;
     screenWidth >= 1300 ? p = 20 : p = screenWidth / pSize;
 
@@ -24,13 +24,13 @@ class LandingPage extends StatelessWidget {
       child: Column(
         children: [
           const Gap(120),
-          HeroSection(),
+          const HeroSection(),
           IstasherniIntro(h1: h1, p: p, backgroundColor: secondaryColor),
           CasesSection(screenWidth: screenWidth, p: p, h1: h1),
           const Gap(150),
           ReviewSection(screenWidth: screenWidth, p: p, h1: h1),
           const Gap(150),
-          Footer(),
+          const Footer(),
         ],
       ),
     );

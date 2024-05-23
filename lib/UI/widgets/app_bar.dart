@@ -14,29 +14,36 @@ class AppBarMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    final ScrollController scrollController = ScrollController();
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          NotificationListener(
-            onNotification: (notification) {
-              if (notification is ScrollUpdateNotification) {
-                context
-                    .read<ScrollPositionCubit>()
-                    .scrollPosition(notification.metrics.pixels);
-              }
-
-              return true;
+          BlocListener<PageRoutingCubit, PageRoutingInitial>(
+            listener: (context, state) {
+              scrollController.jumpTo(0);
             },
-            child: BlocBuilder<PageRoutingCubit, PageRoutingInitial>(
-              builder: (context, state) {
-                return ListView(
-                  children: [
-                    state.currentPage,
-                  ],
-                );
+            child: NotificationListener(
+              onNotification: (notification) {
+                if (notification is ScrollUpdateNotification) {
+                  context
+                      .read<ScrollPositionCubit>()
+                      .scrollPosition(notification.metrics.pixels);
+                }
+
+                return true;
               },
+              child: BlocBuilder<PageRoutingCubit, PageRoutingInitial>(
+                builder: (context, state) {
+                  return ListView(
+                    controller: scrollController,
+                    children: [
+                      state.currentPage,
+                    ],
+                  );
+                },
+              ),
             ),
           ),
           BlocBuilder<ScrollPositionCubit, ScrollPositionInitial>(

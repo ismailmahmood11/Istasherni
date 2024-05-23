@@ -8,7 +8,7 @@ import '../../const.dart';
 import 'Lists/links_list.dart';
 
 class Footer extends StatelessWidget {
-  Footer({super.key});
+  const Footer({super.key});
 
   @override
   Widget build(BuildContext context) {

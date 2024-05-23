@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: mainThemeColor),
           useMaterial3: true,
         ),
-        home: AppBarMain(),
+        home: const AppBarMain(),
       ),
     );
   }

@@ -7,7 +7,7 @@ import 'package:istasherni/UI/const.dart';
 
 import '../../widgets/Footer/footer.dart';
 import '../Sections/review_section.dart';
-import 'Widgets/ClientsWidget.dart';
+import 'Widgets/clients_widget.dart';
 
 class ClientsPage extends StatelessWidget {
   const ClientsPage({super.key});
@@ -122,7 +122,7 @@ class ClientsPage extends StatelessWidget {
           const Gap(sectionGap),
           ReviewSection(screenWidth: screenWidth, p: p, h1: h1),
           const Gap(sectionGap),
-          Footer(),
+          const Footer(),
         ],
       ),
     );

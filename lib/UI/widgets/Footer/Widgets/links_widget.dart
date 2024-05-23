@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//ignore: must_be_immutable
 class LinksWidget extends StatelessWidget {
   LinksWidget({required this.title, required this.link, super.key});
 
@@ -19,11 +20,11 @@ class LinksWidget extends StatelessWidget {
       fontWeight: FontWeight.w400,
     );
 
-    TextStyle linkStyle = GoogleFonts.dmSans(
-      color: Colors.white,
-      fontSize: pSize,
-      fontWeight: FontWeight.w200,
-    );
+    // TextStyle linkStyle = GoogleFonts.dmSans(
+    //   color: Colors.white,
+    //   fontSize: pSize,
+    //   fontWeight: FontWeight.w200,
+    // );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

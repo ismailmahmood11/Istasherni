@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
+import 'package:istasherni/UI/Screens/Case_Details/case_detail.dart';
 
 import '../../../const.dart';
 import 'main_button.dart';
 
+//ignore: must_be_immutable
 class CaseWidget extends StatelessWidget {
   CaseWidget({
     required this.title,
     required this.subTitle,
-    this.onTap,
+    required this.onTap,
     super.key,
   });
 
   String title;
   String subTitle;
-  var onTap;
+  Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +27,8 @@ class CaseWidget extends StatelessWidget {
     double h2 = screenWidth / 50;
     double p = screenWidth / 90;
 
-    double casesWidth = screenWidth / 2.7;
-    double casesHeight = screenHeight / 1.5;
+    double casesWidth = screenWidth / 3;
+    double casesHeight = screenHeight / 1.7;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,7 +66,10 @@ class CaseWidget extends StatelessWidget {
         ),
         const Gap(gap),
         MainButton(
-          onTap: onTap,
+          onTap: () {
+            onTap;
+            context.read<PageRoutingCubit>().currentPage(const CaseDetail());
+          },
           title: 'See detail',
         ),
       ],

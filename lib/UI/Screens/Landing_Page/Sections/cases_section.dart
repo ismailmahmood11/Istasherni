@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:istasherni/UI/Screens/Case_Details/case_detail.dart';
 
+import '../../../../Cubit/PageRouting/page_routing_cubit.dart';
 import '../../../const.dart';
 import '../widgets/case_widget.dart';
 import '../widgets/more_button.dart';
@@ -55,17 +58,26 @@ class CasesSection extends StatelessWidget {
                     'The Case of William Accused Corruption of Money at Gony Bank',
                 subTitle:
                     'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. ',
+                onTap: () {
+                  context
+                      .read<PageRoutingCubit>()
+                      .currentPage(const CaseDetail());
+                },
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  MoreButton(title: 'See More'),
+                  MoreButton(
+                    title: 'See More',
+                    onTap: () {},
+                  ),
                   const Gap(70),
                   CaseWidget(
                     title:
                         'The Case of William Accused Corruption of Money at Gony Bank',
                     subTitle:
                         'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. ',
+                    onTap: () {},
                   ),
                 ],
               ),

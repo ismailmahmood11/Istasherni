@@ -3,10 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
+import 'package:istasherni/UI/Screens/Cases_Page/cases_page.dart';
 import 'package:istasherni/UI/Screens/Clients/clients.dart';
+import 'package:istasherni/UI/Screens/Landing_Page/landing_page.dart';
 import 'package:istasherni/UI/const.dart';
 import 'package:istasherni/UI/widgets/on_hover.dart';
 
+//ignore: must_be_immutable
 class AppBarNavigationBar extends StatelessWidget {
   AppBarNavigationBar({super.key});
 
@@ -16,6 +19,13 @@ class AppBarNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        AppBarNavigationBarTexts(
+          title: 'Home',
+          onTap: () {
+            context.read<PageRoutingCubit>().currentPage(const LandingPage());
+          },
+        ),
+        Gap(gapBetweenText),
         AppBarNavigationBarTexts(
           title: 'About us',
           onTap: () {},
@@ -28,7 +38,9 @@ class AppBarNavigationBar extends StatelessWidget {
         Gap(gapBetweenText),
         AppBarNavigationBarTexts(
           title: 'Cases',
-          onTap: () {},
+          onTap: () {
+            context.read<PageRoutingCubit>().currentPage(const CasesPage());
+          },
         ),
         Gap(gapBetweenText),
         AppBarNavigationBarTexts(
@@ -42,12 +54,13 @@ class AppBarNavigationBar extends StatelessWidget {
   }
 }
 
+//ignore: must_be_immutable
 class AppBarNavigationBarTexts extends StatelessWidget {
   AppBarNavigationBarTexts(
       {required this.title, required this.onTap, super.key});
 
   String title;
-  var onTap;
+  Function() onTap;
 
   @override
   Widget build(BuildContext context) {
