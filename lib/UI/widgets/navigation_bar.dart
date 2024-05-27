@@ -9,6 +9,8 @@ import 'package:istasherni/UI/Screens/Landing_Page/landing_page.dart';
 import 'package:istasherni/UI/const.dart';
 import 'package:istasherni/UI/widgets/on_hover.dart';
 
+import '../Screens/Services/services.dart';
+
 //ignore: must_be_immutable
 class AppBarNavigationBar extends StatelessWidget {
   AppBarNavigationBar({super.key});
@@ -25,15 +27,17 @@ class AppBarNavigationBar extends StatelessWidget {
             context.read<PageRoutingCubit>().currentPage(const LandingPage());
           },
         ),
-        Gap(gapBetweenText),
-        AppBarNavigationBarTexts(
-          title: 'About us',
-          onTap: () {},
-        ),
+        // Gap(gapBetweenText),
+        // AppBarNavigationBarTexts(
+        //   title: 'About us',
+        //   onTap: () {},
+        // ),
         Gap(gapBetweenText),
         AppBarNavigationBarTexts(
           title: 'Services',
-          onTap: () {},
+          onTap: () {
+            context.read<PageRoutingCubit>().currentPage(const Services());
+          },
         ),
         Gap(gapBetweenText),
         AppBarNavigationBarTexts(

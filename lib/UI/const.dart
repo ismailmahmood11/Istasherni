@@ -7,6 +7,7 @@ const primaryThemeColor = Color(0xFFCEB43A);
 const textColor = Color(0xFF333333);
 
 double padding1 = 10;
+const double mobilePadding1 = 15;
 
 const int animationDuration = 150;
 

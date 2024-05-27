@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -123,10 +124,12 @@ class HeroSection extends StatelessWidget {
             ),
             Flexible(
               flex: 2,
-              child: Image.asset(
-                'assets/images/hero_image.png',
-                fit: BoxFit.fitWidth,
-                alignment: Alignment.bottomCenter,
+              child: FadeIn(
+                child: Image.asset(
+                  'assets/images/hero_image.png',
+                  fit: BoxFit.fitWidth,
+                  alignment: Alignment.bottomCenter,
+                ),
               ),
             ),
             Flexible(
