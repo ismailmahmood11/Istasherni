@@ -41,7 +41,7 @@ class MobileHeroSection extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    const Gap(120),
+                    const Gap(50),
                     Text.rich(
                       TextSpan(
                         children: [

@@ -4,7 +4,7 @@ import 'package:istasherni/Cubit/MobileScreen/screen_type_cubit.dart';
 import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
 import 'package:istasherni/Cubit/SrollPosition/scroll_position_cubit.dart';
 import 'package:istasherni/UI/const.dart';
-import 'package:istasherni/UI/widgets/screen_type.dart';
+import 'package:istasherni/screen_type.dart';
 
 void main() {
   runApp(const MyApp());

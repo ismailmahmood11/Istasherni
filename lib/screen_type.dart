@@ -4,8 +4,8 @@ import 'package:istasherni/Cubit/MobileScreen/screen_type_cubit.dart';
 import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
 import 'package:istasherni/UI/Screens/Landing_Page/Mobile/mobile_landing_page.dart';
 import 'package:istasherni/UI/Screens/Landing_Page/landing_page.dart';
+import 'package:istasherni/UI/widgets/MobileWidgets/mobile_app_bar.dart';
 import 'package:istasherni/UI/widgets/app_bar.dart';
-import 'package:istasherni/UI/widgets/mobile_app_bar.dart';
 
 class ScreenType extends StatefulWidget {
   const ScreenType({super.key});
@@ -15,17 +15,22 @@ class ScreenType extends StatefulWidget {
 }
 
 class _ScreenTypeState extends State<ScreenType> {
+  double mobileSize = 433;
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
     context
         .read<ScreenTypeCubit>()
-        .iSMobileScreen(screenWidth > 390 ? false : true);
+        .iSMobileScreen(screenWidth > mobileSize ? false : true);
 
     context.read<PageRoutingCubit>().currentPage(
-        screenWidth < 380 ? MobileLandingPage() : const LandingPage());
+        screenWidth < mobileSize
+            ? const MobileLandingPage()
+            : const LandingPage(),
+        screenWidth < mobileSize ? 'MobileLandingPage' : 'LandingPage');
 
-    return screenWidth < 380 ? MobileAppBar() : const AppBarMain();
+    return screenWidth < mobileSize ? MobileAppBar() : const AppBarMain();
   }
 }

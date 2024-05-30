@@ -2,25 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../const.dart';
+import '../../../const.dart';
 
 class MobileIstasherniIntro extends StatelessWidget {
-  const MobileIstasherniIntro({
+  MobileIstasherniIntro({
     super.key,
     required this.h1,
     required this.p,
+    this.color = primaryThemeColor,
   });
 
   final double h1;
   final double p;
+  Color color;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: secondaryColor,
+      color: color,
       child: Padding(
-        padding: const EdgeInsets.all(mobilePadding1),
+        padding: const EdgeInsets.symmetric(
+            horizontal: mobilePadding1, vertical: 40),
         child: Column(
           children: [
             Text(

@@ -5,61 +5,73 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../const.dart';
 
 class MobileCasesWidget extends StatelessWidget {
-  const MobileCasesWidget({
+  MobileCasesWidget({
     super.key,
     required this.screenHeight,
     required this.h1,
     required this.h2,
     required this.p,
+    required this.onTap,
+    required this.title,
   });
 
   final double screenHeight;
   final double h1;
   final double h2;
   final double p;
+  String title;
+
+  // String img;
+  Function() onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: ShapeDecoration(
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        shadows: const [
-          BoxShadow(
-            color: Color(0x3F000000),
-            blurRadius: 15,
-            offset: Offset(0, 4),
-            spreadRadius: 3,
-          ),
-        ],
-      ),
+    return GestureDetector(
+      onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.all(mobilePadding1),
-        child: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              height: 327,
-              decoration: ShapeDecoration(
-                color: Colors.grey,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
+        padding: const EdgeInsets.symmetric(vertical: 10.0),
+        child: Container(
+          width: double.infinity,
+          decoration: ShapeDecoration(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
             ),
-            const Gap(20),
-            Text(
-              'The case of William Accused Corruption of Money at Gony Bank.',
-              style: GoogleFonts.inter(
-                color: textColor,
-                fontSize: h2,
-                fontWeight: FontWeight.w600,
+            shadows: const [
+              BoxShadow(
+                color: Color(0x3F000000),
+                blurRadius: 15,
+                offset: Offset(0, 4),
+                spreadRadius: 3,
               ),
-            )
-          ],
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(mobilePadding1),
+            child: Column(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 327,
+                  decoration: ShapeDecoration(
+                    color: Colors.grey,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                const Gap(20),
+                Text(
+                  title,
+                  style: GoogleFonts.inter(
+                    color: textColor,
+                    fontSize: h2,
+                    fontWeight: FontWeight.w600,
+                  ),
+                )
+              ],
+            ),
+          ),
         ),
       ),
     );

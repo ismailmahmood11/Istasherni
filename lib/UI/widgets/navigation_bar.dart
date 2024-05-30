@@ -19,41 +19,59 @@ class AppBarNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        AppBarNavigationBarTexts(
-          title: 'Home',
-          onTap: () {
-            context.read<PageRoutingCubit>().currentPage(const LandingPage());
-          },
-        ),
-        // Gap(gapBetweenText),
-        // AppBarNavigationBarTexts(
-        //   title: 'About us',
-        //   onTap: () {},
-        // ),
-        Gap(gapBetweenText),
-        AppBarNavigationBarTexts(
-          title: 'Services',
-          onTap: () {
-            context.read<PageRoutingCubit>().currentPage(const Services());
-          },
-        ),
-        Gap(gapBetweenText),
-        AppBarNavigationBarTexts(
-          title: 'Cases',
-          onTap: () {
-            context.read<PageRoutingCubit>().currentPage(const CasesPage());
-          },
-        ),
-        Gap(gapBetweenText),
-        AppBarNavigationBarTexts(
-          title: 'Clients',
-          onTap: () {
-            context.read<PageRoutingCubit>().currentPage(const ClientsPage());
-          },
-        ),
-      ],
+    return BlocBuilder<PageRoutingCubit, PageRoutingInitial>(
+      builder: (context, state) {
+        return Row(
+          children: [
+            AppBarNavigationBarTexts(
+              color:
+                  state.pageName == 'LandingPage' ? mainThemeColor : textColor,
+              title: 'Home',
+              onTap: () {
+                context
+                    .read<PageRoutingCubit>()
+                    .currentPage(const LandingPage(), 'LandingPage');
+              },
+            ),
+            // Gap(gapBetweenText),
+            // AppBarNavigationBarTexts(
+            //   title: 'About us',
+            //   onTap: () {},
+            // ),
+            Gap(gapBetweenText),
+            AppBarNavigationBarTexts(
+              color: state.pageName == 'Services' ? mainThemeColor : textColor,
+              title: 'Services',
+              onTap: () {
+                context
+                    .read<PageRoutingCubit>()
+                    .currentPage(const Services(), 'Services');
+              },
+            ),
+            Gap(gapBetweenText),
+            AppBarNavigationBarTexts(
+              color: state.pageName == 'CasesPage' ? mainThemeColor : textColor,
+              title: 'Cases',
+              onTap: () {
+                context
+                    .read<PageRoutingCubit>()
+                    .currentPage(const CasesPage(), 'CasesPage');
+              },
+            ),
+            Gap(gapBetweenText),
+            AppBarNavigationBarTexts(
+              color:
+                  state.pageName == 'ClientsPage' ? mainThemeColor : textColor,
+              title: 'Clients',
+              onTap: () {
+                context
+                    .read<PageRoutingCubit>()
+                    .currentPage(const ClientsPage(), 'ClientsPage');
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
@@ -61,10 +79,14 @@ class AppBarNavigationBar extends StatelessWidget {
 //ignore: must_be_immutable
 class AppBarNavigationBarTexts extends StatelessWidget {
   AppBarNavigationBarTexts(
-      {required this.title, required this.onTap, super.key});
+      {required this.title,
+      required this.onTap,
+      required this.color,
+      super.key});
 
   String title;
   Function() onTap;
+  Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +95,7 @@ class AppBarNavigationBarTexts extends StatelessWidget {
         onTap: onTap,
         child: AnimatedDefaultTextStyle(
           style: GoogleFonts.inter(
-            color: onHover ? mainThemeColor : textColor,
+            color: onHover ? mainThemeColor : color,
             fontSize: 17,
             fontWeight: FontWeight.w600,
           ),

@@ -61,7 +61,7 @@ class CasesSection extends StatelessWidget {
                 onTap: () {
                   context
                       .read<PageRoutingCubit>()
-                      .currentPage(const CaseDetail());
+                      .currentPage(const CaseDetail(), 'CaseDetail');
                 },
               ),
               Column(

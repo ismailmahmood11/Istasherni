@@ -68,7 +68,9 @@ class CaseWidget extends StatelessWidget {
         MainButton(
           onTap: () {
             onTap;
-            context.read<PageRoutingCubit>().currentPage(const CaseDetail());
+            context
+                .read<PageRoutingCubit>()
+                .currentPage(const CaseDetail(), 'CasesPage');
           },
           title: 'See detail',
         ),

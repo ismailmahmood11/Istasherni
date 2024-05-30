@@ -73,7 +73,7 @@ class AppBarMain extends StatelessWidget {
                         onTap: () {
                           context
                               .read<PageRoutingCubit>()
-                              .currentPage(const LandingPage());
+                              .currentPage(const LandingPage(), 'LandingPage');
                         },
                         child: Image.asset(
                           'assets/images/logo/istasherni_logo.png',
