@@ -73,13 +73,21 @@ class ClientsPage extends StatelessWidget {
                   children: [
                     Container(
                       width: screenWidth / 3,
-                      height: screenHeight / 1.5,
-                      decoration: const BoxDecoration(
+                      height: screenHeight / 2,
+                      decoration: BoxDecoration(
                         color: Colors.grey,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          'assets/images/People/marwa.png',
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     SizedBox(
-                      height: screenHeight / 1.5,
+                      height: screenHeight / 2.1,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,23 +100,17 @@ class ClientsPage extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                             ),
                           ),
+                          const Gap(10),
                           Container(
                             color: Colors.grey,
                             width: screenHeight / 1.3,
                             height: 3,
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Lead cases to success', style: pointStyle),
-                              const Gap(gap),
-                              Text('Raised Awareness', style: pointStyle),
-                              const Gap(gap),
-                              Text('Lead cases to success', style: pointStyle),
-                              const Gap(gap),
-                              Text('Raised Awareness', style: pointStyle),
-                            ],
-                          )
+                          const Gap(10),
+                          Text('Lead cases to success', style: pointStyle),
+                          Text('Raised Awareness', style: pointStyle),
+                          Text('Lead cases to success', style: pointStyle),
+                          Text('Raised Awareness', style: pointStyle)
                         ],
                       ),
                     )

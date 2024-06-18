@@ -13,11 +13,13 @@ class CaseWidget extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.onTap,
+    required this.image,
     super.key,
   });
 
   String title;
   String subTitle;
+  String image;
   Function() onTap;
 
   @override
@@ -28,7 +30,7 @@ class CaseWidget extends StatelessWidget {
     double p = screenWidth / 90;
 
     double casesWidth = screenWidth / 3;
-    double casesHeight = screenHeight / 1.7;
+    double casesHeight = screenHeight / 2;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,8 +38,16 @@ class CaseWidget extends StatelessWidget {
         Container(
           width: casesWidth,
           height: casesHeight,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: Colors.grey,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              image,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         const Gap(gap),
@@ -47,7 +57,7 @@ class CaseWidget extends StatelessWidget {
             title,
             style: TextStyle(
               color: textColor,
-              fontSize: h2,
+              fontSize: h2 - 5,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -60,7 +70,7 @@ class CaseWidget extends StatelessWidget {
             style: TextStyle(
               color: textColor,
               fontSize: p,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w400,
             ),
           ),
         ),

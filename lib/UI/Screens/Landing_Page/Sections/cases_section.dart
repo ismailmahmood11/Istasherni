@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:istasherni/UI/Screens/Case_Details/case_detail.dart';
+import 'package:istasherni/UI/Screens/Cases_Page/cases_page.dart';
 
 import '../../../../Cubit/PageRouting/page_routing_cubit.dart';
 import '../../../const.dart';
@@ -9,16 +10,18 @@ import '../widgets/case_widget.dart';
 import '../widgets/more_button.dart';
 
 class CasesSection extends StatelessWidget {
-  const CasesSection({
+  CasesSection({
     super.key,
     required this.screenWidth,
     required this.p,
     required this.h1,
+    this.showMoreButton = false,
   });
 
   final double screenWidth;
   final double p;
   final double h1;
+  bool showMoreButton = false;
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +57,10 @@ class CasesSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CaseWidget(
-                title:
-                    'The Case of William Accused Corruption of Money at Gony Bank',
+                image: 'assets/images/cases_Images/cases1.png',
+                title: 'Naturalization in the US',
                 subTitle:
-                    'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. ',
+                    'We specialize in guiding clients through the naturalization process, offering dedicated support from application to interview. Our services include accompanying clients to their interviews and ensuring clarity with our proficient Arabic interpreters.',
                 onTap: () {
                   context
                       .read<PageRoutingCubit>()
@@ -67,16 +70,23 @@ class CasesSection extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  MoreButton(
-                    title: 'See More',
-                    onTap: () {},
+                  Visibility(
+                    visible: showMoreButton,
+                    child: MoreButton(
+                      title: 'See More',
+                      onTap: () {
+                        context
+                            .read<PageRoutingCubit>()
+                            .currentPage(const CasesPage(), "CasesPage");
+                      },
+                    ),
                   ),
                   const Gap(70),
                   CaseWidget(
-                    title:
-                        'The Case of William Accused Corruption of Money at Gony Bank',
+                    image: 'assets/images/cases_Images/cases2.png',
+                    title: 'Establishing a New Company in the US',
                     subTitle:
-                        'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. ',
+                        "We provided our musician client with comprehensive guidance throughout the process of establishing her business, offering detailed consultations tailored to her new venture's needs. Our support ensured she navigated each step confidently, from initial planning to operational setup and beyond.",
                     onTap: () {},
                   ),
                 ],

@@ -26,7 +26,12 @@ class LandingPage extends StatelessWidget {
           const Gap(120),
           const HeroSection(),
           IstasherniIntro(h1: h1, p: p, backgroundColor: secondaryColor),
-          CasesSection(screenWidth: screenWidth, p: p, h1: h1),
+          CasesSection(
+            screenWidth: screenWidth,
+            p: p,
+            h1: h1,
+            showMoreButton: true,
+          ),
           const Gap(150),
           ReviewSection(screenWidth: screenWidth, p: p, h1: h1),
           const Gap(150),

@@ -18,5 +18,5 @@ const double sectionGap = 120;
 const double mobileSectionGap = 60;
 
 double h1Size = 40;
-double h2Size = 60;
+double h2Size = 70;
 double pSize = 100;

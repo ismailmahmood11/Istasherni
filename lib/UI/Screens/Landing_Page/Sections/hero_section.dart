@@ -1,10 +1,13 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
 import 'package:istasherni/UI/const.dart';
 
+import '../../Services/services.dart';
 import '../widgets/main_button.dart';
 import '../widgets/more_button.dart';
 
@@ -106,7 +109,11 @@ class HeroSection extends StatelessWidget {
                       Gap(gap),
                       MoreButton(
                         title: 'Explore',
-                        onTap: () {},
+                        onTap: () {
+                          context
+                              .read<PageRoutingCubit>()
+                              .currentPage(const Services(), 'Services');
+                        },
                       ),
                     ],
                   ),

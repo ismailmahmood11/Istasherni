@@ -39,33 +39,30 @@ class ReviewSection extends StatelessWidget {
             style: TextStyle(
               color: textColor,
               fontSize: h1,
-              fontFamily: 'Helvetica Neue LT Arabic',
               fontWeight: FontWeight.w700,
             ),
           ),
-          const Gap(150),
+          const Gap(100),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 250,
-                height: 250,
+                width: 155,
+                height: 155,
                 decoration: BoxDecoration(
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(10000),
                 ),
+                child: Image.asset(
+                  'assets/images/People/person1.png',
+                  fit: BoxFit.cover,
+                ),
               ),
+              const Gap(70),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Opacity(
-                    opacity: 0.2,
-                    child: Image.asset(
-                      'assets/images/icons/quote.png',
-                      width: h1,
-                    ),
-                  ),
                   Padding(
                     padding: const EdgeInsets.only(top: 50.0),
                     child: SizedBox(
@@ -74,7 +71,53 @@ class ReviewSection extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. Duis lectus gravida ultricies eleifend in pharetra faucibus orci sem. Proin ac a cursus praesent. Malesuada risus amet nunc posuere rhoncus accumsan congue id dolor. Convallis maecenas sed in pellentesque. Diam tristique semper mauris dolor amet. Dolor elit nunc et purus quam amet laoreet eu risus.',
+                            'Ahmed Alshagaa',
+                            style: TextStyle(
+                              color: textColor,
+                              fontSize: p,
+                              fontFamily: 'DM Serif Display',
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.star_rounded,
+                                color: mainThemeColor,
+                              ),
+                              Icon(
+                                Icons.star_rounded,
+                                color: mainThemeColor,
+                              ),
+                              Icon(
+                                Icons.star_rounded,
+                                color: mainThemeColor,
+                              ),
+                              Icon(
+                                Icons.star_rounded,
+                                color: mainThemeColor,
+                              ),
+                              Icon(
+                                Icons.star_rounded,
+                                color: mainThemeColor,
+                              ),
+                              Gap(5),
+                              // Text(
+                              //   '5 5',
+                              //   style: TextStyle(
+                              //     color: textColor,
+                              //     fontSize: p - 2,
+                              //     fontFamily: 'DM Serif Display',
+                              //     fontWeight: FontWeight.w700,
+                              //   ),
+                              // ),
+                            ],
+                          ),
+                          const Gap(20),
+                          Text(
+                            'First of all i really recommend Marwa for all cases. She was very professional plus helpful to give me the right direction on my case.\nSecond she gives the top priority to the client and its case by finding the best and right decision. Also her team is always in contact whenever needed.\nThank you for your support.',
                             softWrap: true,
                             style: GoogleFonts.dmSans(
                               color: textColor,
@@ -83,48 +126,6 @@ class ReviewSection extends StatelessWidget {
                             ),
                           ),
                           const Gap(20),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Johnatan G ',
-                                style: TextStyle(
-                                  color: textColor,
-                                  fontSize: p,
-                                  fontFamily: 'DM Serif Display',
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              const Gap(20),
-                              const Icon(
-                                Icons.star_rounded,
-                                color: mainThemeColor,
-                              ),
-                              const Icon(
-                                Icons.star_rounded,
-                                color: mainThemeColor,
-                              ),
-                              const Icon(
-                                Icons.star_rounded,
-                                color: mainThemeColor,
-                              ),
-                              const Icon(
-                                Icons.star_rounded,
-                                color: mainThemeColor,
-                              ),
-                              const Gap(5),
-                              Text(
-                                '4/5',
-                                style: TextStyle(
-                                  color: textColor,
-                                  fontSize: p - 2,
-                                  fontFamily: 'DM Serif Display',
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            ],
-                          )
                         ],
                       ),
                     ),
