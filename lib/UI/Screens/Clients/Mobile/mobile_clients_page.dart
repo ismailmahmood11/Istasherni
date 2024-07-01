@@ -93,7 +93,11 @@ class MobileClientsPage extends StatelessWidget {
             ],
           ),
         ),
-        MobileBottomSection(h1: h1, p: p),
+        MobileBottomSection(
+          h1: h1,
+          p: p,
+          h2: h2,
+        ),
       ],
     );
   }

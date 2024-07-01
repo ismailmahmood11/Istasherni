@@ -1,12 +1,16 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:istasherni/UI/Screens/Sections/istasherni_intro.dart';
 import 'package:istasherni/UI/Screens/Sections/review_section.dart';
 import 'package:istasherni/UI/widgets/Footer/footer.dart';
 
+import '../../../Cubit/PageRouting/page_routing_cubit.dart';
+import '../../../Cubit/case_details_cubit.dart';
 import '../../const.dart';
+import '../Case_Details/case_detail.dart';
 import '../Landing_Page/widgets/case_widget.dart';
 
 class CasesPage extends StatelessWidget {
@@ -54,23 +58,41 @@ class CasesPage extends StatelessWidget {
                   children: [
                     CaseWidget(
                       image: 'assets/images/cases_Images/cases1.png',
-                      title:
-                          'The Case of William Accused Corruption of Money at Gony Bank',
+                      title: 'Naturalization in the US',
                       subTitle:
-                          'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. ',
-                      onTap: () {},
+                          'We specialize in guiding clients through the naturalization process, offering dedicated support from application to interview. Our services include accompanying clients to their interviews and ensuring clarity with our proficient Arabic interpreters.',
+                      onTap: () {
+                        context
+                            .read<PageRoutingCubit>()
+                            .currentPage(const CaseDetail(), 'CaseDetail');
+                        context.read<CaseDetailsCubit>().caseDetails(
+                              'Naturalization in the US',
+                              "At our firm, we excel in assisting clients through every step of the naturalization process, ensuring they navigate it smoothly. From initial application submission to interview preparation, we offer comprehensive support tailored to their needs. Our dedicated team stands by their side, providing expert guidance and peace of mind. We accompany clients to their interviews, ensuring they feel confident and well-prepared. With our skilled Arabic interpreters, language barriers are effectively bridged, ensuring clear communication throughout. Count on us to make your naturalization journey as seamless and successful as possible.",
+                              'assets/images/cases_Images/cases1.png',
+                              'December, 11 2022 - January, 9 2023',
+                            );
+                      },
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         const Gap(70),
                         CaseWidget(
-                          image: 'assets/images/cases_Images/cases1.png',
-                          title:
-                              'The Case of William Accused Corruption of Money at Gony Bank',
+                          image: 'assets/images/cases_Images/cases2.png',
+                          title: 'Establishing a New Company in the US',
                           subTitle:
-                              'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. ',
-                          onTap: () {},
+                              "We provided our musician client with comprehensive guidance throughout the process of establishing her business, offering detailed consultations tailored to her new venture's needs. Our support ensured she navigated each step confidently, from initial planning to operational setup and beyond.",
+                          onTap: () {
+                            context
+                                .read<PageRoutingCubit>()
+                                .currentPage(const CaseDetail(), 'CaseDetail');
+                            context.read<CaseDetailsCubit>().caseDetails(
+                                  'Establishing a New Company in the US',
+                                  "We provided comprehensive guidance to our musician client, assisting her throughout the entire process of establishing her business. Our support included detailed consultations tailored to her new venture's specific needs. We helped her with initial planning, ensuring she had a solid foundation. Our team guided her through legal requirements and business registration. We offered advice on marketing strategies and audience engagement. Throughout the setup phase, we provided continuous support and feedback. Our assistance ensured she confidently navigated every step of her business journey.",
+                                  'assets/images/cases_Images/cases2.png',
+                                  'December, 11 2022 - January, 9 2023',
+                                );
+                          },
                         ),
                       ],
                     ),
@@ -81,12 +103,21 @@ class CasesPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CaseWidget(
-                      image: 'assets/images/cases_Images/cases1.png',
-                      title:
-                          'The Case of William Accused Corruption of Money at Gony Bank',
+                      image: 'assets/images/cases_Images/cases3.png',
+                      title: 'Green Card',
                       subTitle:
-                          'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. ',
-                      onTap: () {},
+                          "We submitted an application for our client to obtain her green card and facilitated the establishment of her marriage in the US.",
+                      onTap: () {
+                        context
+                            .read<PageRoutingCubit>()
+                            .currentPage(const CaseDetail(), 'CaseDetail');
+                        context.read<CaseDetailsCubit>().caseDetails(
+                              'Green Card',
+                              "We submitted a green card application for our client and facilitated the establishment of her marriage in the US. Our comprehensive support ensured all legal requirements were met, providing peace of mind throughout the process. We guided her through documentation and interview preparation, ensuring she was well-prepared. Our dedicated team assisted in gathering and organizing all necessary paperwork. We provided continuous updates and clear communication. Our client felt supported and confident at every stage. We ensured a seamless and successful experience from start to finish.",
+                              'assets/images/cases_Images/cases3.png',
+                              'December, 11 2022 - January, 9 2023',
+                            );
+                      },
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -131,7 +162,7 @@ class CasesPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '28 years being\nan attorney',
+                            '28 years being\nan Lawyer',
                             style: GoogleFonts.dmSerifDisplay(
                               color: textColor,
                               fontSize: h1,

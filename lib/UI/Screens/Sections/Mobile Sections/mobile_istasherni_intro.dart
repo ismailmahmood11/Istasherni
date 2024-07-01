@@ -8,11 +8,13 @@ class MobileIstasherniIntro extends StatelessWidget {
   MobileIstasherniIntro({
     super.key,
     required this.h1,
+    required this.h2,
     required this.p,
     this.color = primaryThemeColor,
   });
 
   final double h1;
+  final double h2;
   final double p;
   Color color;
 
@@ -36,13 +38,68 @@ class MobileIstasherniIntro extends StatelessWidget {
               ),
             ),
             const Gap(gap),
-            Text(
-              'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. Duis lectus gravida ultricies eleifend in pharetra faucibus orci sem. ',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: p,
-                fontWeight: FontWeight.w400,
+            SizedBox(
+              width: 1062,
+              child: Text(
+                'a certified website that provides legal services for a nominal fee, serving international male and female students abroad, with scholarships, of all age groups and their families',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: Colors.white,
+                  fontSize: p,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ),
+            const Gap(60),
+            SizedBox(
+              width: 1062,
+              child: Text(
+                'Our Mission',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: Colors.white,
+                  fontSize: h2,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            const Gap(10),
+            SizedBox(
+              width: 1062,
+              child: Text(
+                'To provide legal  services for various legal matters at a nominal cost, in accordance with the standards of living for international students in the United States of America',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: Colors.white,
+                  fontSize: p,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ),
+            const Gap(gap),
+            SizedBox(
+              width: 1062,
+              child: Text(
+                'Our Vision',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: Colors.white,
+                  fontSize: h2,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            const Gap(10),
+            SizedBox(
+              width: 1062,
+              child: Text(
+                'To offer legal services in the Arabic language, being based on awareness and legal education\nTo defend the rights of international male students and female students in the United States of America, which are legally established therein',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: Colors.white,
+                  fontSize: p,
+                  fontWeight: FontWeight.w300,
+                ),
               ),
             ),
           ],

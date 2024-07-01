@@ -28,29 +28,41 @@ class MobileServices extends StatelessWidget {
                   h1: h1,
                   p: p,
                   title: 'General Legal Services',
-                  para:
-                      'At Istasherni, we transform legal complexities into strategic opportunities. Our team delivers exceptional, personalized legal services to protect and empower you.\n\nLorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. Duis lectus gravida ultricies eleifend in pharetra faucibus orci sem. ',
+                  para: 'Services Offered:\n\n'
+                      'Notary Public Services: Available both in-person and online.\n'
+                      'Certified Translation Services: Specializing in Arabic, English, and Spanish.\n'
+                      'Legal Representation: Providing assistance as your trusted legal representative.\n'
+                      'Power of Attorney: Facilitating the drafting and execution of power of attorney documents.',
                 ),
                 const Gap(gap),
                 MobileServicesWidget(
                   h1: h1,
                   p: p,
                   title: 'Immigration Services',
-                  para:
-                      'At Istasherni, we transform legal complexities into strategic opportunities. Our team delivers exceptional, personalized legal services to protect and empower you.\n\nLorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. Duis lectus gravida ultricies eleifend in pharetra faucibus orci sem. ',
+                  para: 'Immigration Document Preparation\n\n'
+                      'Adjustment of Status\n\n'
+                      'Citizenship',
                 ),
                 const Gap(gap),
                 MobileServicesWidget(
                   h1: h1,
                   p: p,
                   title: 'Business Services',
-                  para:
-                      'At Istasherni, we transform legal complexities into strategic opportunities. Our team delivers exceptional, personalized legal services to protect and empower you.\n\nLorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. Duis lectus gravida ultricies eleifend in pharetra faucibus orci sem. ',
+                  para: 'Business Structure and Registration:\n\n'
+                      'Choosing the right legal structure for an online business.\n'
+                      'Assistance with business registration and compliance.\n\n'
+                      'Terms of Service and Privacy Policies:\n\n'
+                      'Drafting and reviewing terms of service and privacy policies.\n'
+                      'Contract Drafting and Review',
                 ),
               ],
             ),
           ),
-          MobileBottomSection(h1: h1, p: p)
+          MobileBottomSection(
+            h1: h1,
+            p: p,
+            h2: h2,
+          )
         ],
       ),
     );

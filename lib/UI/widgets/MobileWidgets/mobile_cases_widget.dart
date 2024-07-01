@@ -13,6 +13,7 @@ class MobileCasesWidget extends StatelessWidget {
     required this.p,
     required this.onTap,
     required this.title,
+    this.img = 'assets/images/cases_Images/cases1.png',
   });
 
   final double screenHeight;
@@ -20,6 +21,7 @@ class MobileCasesWidget extends StatelessWidget {
   final double h2;
   final double p;
   String title;
+  String img;
 
   // String img;
   Function() onTap;
@@ -59,6 +61,12 @@ class MobileCasesWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        img,
+                        fit: BoxFit.cover,
+                      )),
                 ),
                 const Gap(20),
                 Text(

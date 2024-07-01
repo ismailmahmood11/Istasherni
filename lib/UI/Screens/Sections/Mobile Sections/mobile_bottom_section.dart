@@ -10,10 +10,12 @@ class MobileBottomSection extends StatelessWidget {
   const MobileBottomSection({
     super.key,
     required this.h1,
+    required this.h2,
     required this.p,
   });
 
   final double h1;
+  final double h2;
   final double p;
 
   @override
@@ -21,7 +23,11 @@ class MobileBottomSection extends StatelessWidget {
     return Column(
       children: [
         const Gap(mobileSectionGap),
-        MobileIstasherniIntro(h1: h1, p: p),
+        MobileIstasherniIntro(
+          h1: h1,
+          p: p,
+          h2: h2,
+        ),
         MobileReview(h1: h1, p: p),
         const Gap(mobileSectionGap),
         MobileFooter(socialIconSize: mobileSocialIconSize, p: p),

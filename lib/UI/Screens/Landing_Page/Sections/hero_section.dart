@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
+import 'package:istasherni/UI/Screens/Consultation/consultation_screen.dart';
 import 'package:istasherni/UI/const.dart';
 
 import '../../Services/services.dart';
@@ -104,7 +105,10 @@ class HeroSection extends StatelessWidget {
                     children: [
                       MainButton(
                         title: 'Consult Now',
-                        onTap: () {},
+                        onTap: () {
+                          context.read<PageRoutingCubit>().currentPage(
+                              ConsultationScreen(), 'ConsultationScreen');
+                        },
                       ),
                       Gap(gap),
                       MoreButton(

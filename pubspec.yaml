@@ -44,6 +44,8 @@ dependencies:
   flutter_bloc: ^8.1.5
   ionicons: ^0.2.2
   animate_do: ^3.3.4
+  syncfusion_flutter_datepicker: ^26.1.39
+  date_time_format: ^2.0.1
 
 dev_dependencies:
   flutter_test:

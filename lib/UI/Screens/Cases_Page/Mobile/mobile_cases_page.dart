@@ -7,6 +7,7 @@ import 'package:istasherni/UI/Screens/Sections/Mobile%20Sections/mobile_bottom_s
 import 'package:istasherni/UI/const.dart';
 
 import '../../../../Cubit/PageRouting/page_routing_cubit.dart';
+import '../../../../Cubit/case_details_cubit.dart';
 import '../../../widgets/MobileWidgets/mobile_cases_widget.dart';
 
 class MobileCasesPage extends StatelessWidget {
@@ -31,7 +32,7 @@ class MobileCasesPage extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: caseList.length,
-                  itemBuilder: (BuildContext context, int index) {
+                  itemBuilder: (BuildContext context, int i) {
                     return MobileCasesWidget(
                       screenHeight: screenHeight,
                       h1: h1,
@@ -40,15 +41,26 @@ class MobileCasesPage extends StatelessWidget {
                       onTap: () {
                         context.read<PageRoutingCubit>().currentPage(
                             const MobileCaseDetails(), 'MobileCasesPage');
+                        context.read<CaseDetailsCubit>().caseDetails(
+                              caseList[i].title,
+                              caseList[i].desc,
+                              caseList[i].img,
+                              caseList[i].date,
+                            );
                       },
-                      title: caseList[index].title,
+                      title: caseList[i].title,
+                      img: caseList[i].img,
                     );
                   },
                 ),
               ],
             ),
           ),
-          MobileBottomSection(h1: h1, p: p),
+          MobileBottomSection(
+            h1: h1,
+            p: p,
+            h2: h2,
+          ),
         ],
       ),
     );

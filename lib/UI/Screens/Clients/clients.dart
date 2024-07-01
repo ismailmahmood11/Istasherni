@@ -93,7 +93,7 @@ class ClientsPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '28 years being\nan attorney',
+                            '28 years being\nan Lawyer',
                             style: GoogleFonts.dmSerifDisplay(
                               color: textColor,
                               fontSize: h1,

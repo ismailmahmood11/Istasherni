@@ -25,7 +25,12 @@ class MobileLandingPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MobileHeroSection(screenHeight: screenHeight, h1: h1, p: p),
-          MobileIstasherniIntro(h1: h1, p: p, color: secondaryColor),
+          MobileIstasherniIntro(
+            h1: h1,
+            p: p,
+            color: secondaryColor,
+            h2: h2,
+          ),
           CaseSection(h1: h1, screenHeight: screenHeight, h2: h2, p: p),
           MobileReview(h1: h1, p: p),
           const Gap(mobileSectionGap),

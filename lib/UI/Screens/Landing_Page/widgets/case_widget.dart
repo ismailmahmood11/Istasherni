@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
-import 'package:istasherni/UI/Screens/Case_Details/case_detail.dart';
 
 import '../../../const.dart';
 import 'main_button.dart';
@@ -76,12 +73,7 @@ class CaseWidget extends StatelessWidget {
         ),
         const Gap(gap),
         MainButton(
-          onTap: () {
-            onTap;
-            context
-                .read<PageRoutingCubit>()
-                .currentPage(const CaseDetail(), 'CasesPage');
-          },
+          onTap: onTap,
           title: 'See detail',
         ),
       ],

@@ -87,6 +87,7 @@ class MobileHeroSection extends StatelessWidget {
                   title: 'Consult Now',
                   color: mainThemeColor,
                   textColor: Colors.white,
+                  onTap: () {},
                 ),
                 const Gap(10),
                 const Gap(10),

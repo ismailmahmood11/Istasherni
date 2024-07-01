@@ -8,11 +8,13 @@ class MainButton extends StatelessWidget {
   MainButton({
     required this.title,
     required this.onTap,
+    this.color = mainThemeColor,
     super.key,
   });
 
   String title;
   Function() onTap;
+  Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class MainButton extends StatelessWidget {
                 blurRadius: 5,
               ),
             ],
-            color: mainThemeColor,
+            color: color,
             borderRadius: BorderRadius.circular(50),
           ),
           child: Center(
