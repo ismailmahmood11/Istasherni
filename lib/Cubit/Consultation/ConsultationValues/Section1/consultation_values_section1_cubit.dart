@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 
-part 'consultation_values_state.dart';
+part 'consultation_values_section1_state.dart';
 
 class ConsultationValuesCubit extends Cubit<ConsultationValuesInitial> {
   ConsultationValuesCubit()

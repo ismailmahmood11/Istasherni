@@ -1,4 +1,4 @@
-part of 'consultation_values_cubit.dart';
+part of 'consultation_values_section1_cubit.dart';
 
 class ConsultationValuesInitial {
   final String firstName;

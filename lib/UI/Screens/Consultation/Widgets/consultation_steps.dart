@@ -12,6 +12,8 @@ class ConsultationSteps extends StatelessWidget {
     required this.p,
     required this.title,
     required this.no,
+    required this.color,
+    required this.noColor,
   });
 
   final double screenWidth;
@@ -19,6 +21,8 @@ class ConsultationSteps extends StatelessWidget {
   final double p;
   String no;
   String title;
+  Color color;
+  Color noColor;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +39,7 @@ class ConsultationSteps extends StatelessWidget {
             child: Text(
               no,
               style: GoogleFonts.dmSerifDisplay(
-                color: primaryThemeColor,
+                color: noColor,
                 fontSize: h1,
                 fontWeight: FontWeight.w400,
               ),
@@ -46,7 +50,7 @@ class ConsultationSteps extends StatelessWidget {
         Text(
           title,
           style: GoogleFonts.inter(
-            color: mainThemeColor,
+            color: color,
             fontSize: p,
             fontWeight: FontWeight.w900,
           ),

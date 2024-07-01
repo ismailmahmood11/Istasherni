@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:istasherni/Cubit/Consultation/ConsultationValues/Section1/consultation_values_section1_cubit.dart';
+import 'package:istasherni/Cubit/Consultation/ConsultationValues/Section2/consultation_values_section2_cubit.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import '../../../../Cubit/Consultation/Date Picker/date_picker_cubit.dart';
 import '../../../const.dart';
 
-class ConsultationDob extends StatelessWidget {
-  const ConsultationDob({super.key});
+class ConsultationAppointmentDate extends StatelessWidget {
+  const ConsultationAppointmentDate({super.key});
 
   void _onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
     // TODO: implement your code here
@@ -35,10 +35,10 @@ class ConsultationDob extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(2),
           ),
-          child: state.bdOpen
+          child: state.appointmentOpen
               ? FadeIn(
-                  child: BlocBuilder<ConsultationValuesCubit,
-                      ConsultationValuesInitial>(
+                  child: BlocBuilder<ConsultationValuesSection2Cubit,
+                      ConsultationValuesSection2Initial>(
                     builder: (context, state) {
                       return SfDateRangePicker(
                         onSelectionChanged: _onSelectionChanged,
@@ -46,20 +46,28 @@ class ConsultationDob extends StatelessWidget {
                         backgroundColor: Colors.white,
                         showNavigationArrow: true,
                         showActionButtons: true,
-                        view: DateRangePickerView.decade,
+                        view: DateRangePickerView.month,
                         onSubmit: (value) {
-                          context.read<DatePickerCubit>().bdOpen(false);
                           context
                               .read<DatePickerCubit>()
-                              .birthDay(value as DateTime);
+                              .appointmentOpen(false);
+                          context
+                              .read<DatePickerCubit>()
+                              .appointment(value as DateTime);
 
-                          context.read<DatePickerCubit>().cancel(false);
+                          context
+                              .read<DatePickerCubit>()
+                              .appointmentCancel(false);
                         },
                         onCancel: () {
-                          context.read<DatePickerCubit>().bdOpen(false);
-                          context.read<DatePickerCubit>().cancel(true);
+                          context
+                              .read<DatePickerCubit>()
+                              .appointmentOpen(false);
+                          context
+                              .read<DatePickerCubit>()
+                              .appointmentCancel(true);
                         },
-                        maxDate: DateTime.now(),
+                        minDate: DateTime.now().add(const Duration(days: 1)),
                         headerStyle: const DateRangePickerHeaderStyle(
                           backgroundColor: Colors.white,
                         ),
@@ -69,14 +77,14 @@ class ConsultationDob extends StatelessWidget {
                 )
               : GestureDetector(
                   onTap: () {
-                    context.read<DatePickerCubit>().bdOpen(true);
+                    context.read<DatePickerCubit>().appointmentOpen(true);
                   },
                   child: FadeIn(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: state.cancel
+                      child: state.appointmentCancel
                           ? Text(
-                              'Year of Birth (Gregorian Calendar)*',
+                              'Choose Appointment Date',
                               style: GoogleFonts.dmSerifDisplay(
                                 color: textColor,
                                 fontSize: p,
@@ -84,7 +92,7 @@ class ConsultationDob extends StatelessWidget {
                               ),
                             )
                           : Text(
-                              "DOB: ${DateFormat('MMMM dd y').format(state.dateTime).toString()}",
+                              "Appointment Date: ${DateFormat('MMMM dd y').format(state.appointmentDateTime).toString()}",
                               style: GoogleFonts.dmSans(
                                 color: textColor,
                                 fontSize: 18,

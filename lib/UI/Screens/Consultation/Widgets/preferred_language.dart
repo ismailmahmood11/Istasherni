@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../Cubit/Consultation/consultation_values_cubit.dart';
+import '../../../../Cubit/Consultation/ConsultationValues/Section1/consultation_values_section1_cubit.dart';
 import '../../../const.dart';
 
 class PreferredLanguage extends StatefulWidget {
