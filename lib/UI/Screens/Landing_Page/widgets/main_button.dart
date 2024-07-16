@@ -18,13 +18,27 @@ class MainButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile;
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    isMobile = screenWidth < mobileSize ? true : false;
+
+    double p = screenWidth / pSize;
     return GestureDetector(
       onTap: onTap,
       child: HoverBuilder(builder: (onHover) {
         return AnimatedContainer(
           duration: const Duration(milliseconds: animationDuration),
-          width: onHover ? 175 : 170,
-          height: onHover ? 52 : 50,
+          width: isMobile
+              ? 110
+              : onHover
+                  ? 175
+                  : 170,
+          height: isMobile
+              ? 50
+              : onHover
+                  ? 52
+                  : 50,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -38,10 +52,10 @@ class MainButton extends StatelessWidget {
           child: Center(
             child: Text(
               title,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.white,
-                fontSize: 17,
-                fontWeight: FontWeight.w500,
+                fontSize: isMobile ? mp : p,
+                fontWeight: FontWeight.w400,
               ),
             ),
           ),

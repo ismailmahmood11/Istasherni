@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart' show DateFormat;
-import 'package:istasherni/Cubit/Consultation/ConsultationRouting/consultation_routing_cubit.dart';
+import 'package:istasherni/Cubit/Consultation/ConsultationRouting/Mobile/mobile_consultation_routing_cubit.dart';
+import 'package:istasherni/UI/const.dart';
 
-import '../../../../Cubit/Consultation/ConsultationValues/Section1/consultation_values_section1_cubit.dart';
-import '../../../../Cubit/Consultation/Date Picker/date_picker_cubit.dart';
-import '../../../const.dart';
-import '../../Landing_Page/widgets/main_button.dart';
-import '../Widgets/consultation_dob.dart';
-import '../Widgets/consultation_text_field.dart';
-import '../Widgets/preferred_language.dart';
-import 'consultation_section_2.dart';
+import '../../../../../Cubit/Consultation/ConsultationValues/Section1/consultation_values_section1_cubit.dart';
+import '../../../../../Cubit/Consultation/Date Picker/date_picker_cubit.dart';
+import '../../../Landing_Page/widgets/main_button.dart';
+import '../../Widgets/consultation_dob.dart';
+import '../../Widgets/consultation_text_field.dart';
+import '../../Widgets/preferred_language.dart';
+import 'mobile_section_2.dart';
 
-class ConsultationSection1 extends StatelessWidget {
-  ConsultationSection1({super.key});
+class MobileConsultationSection1 extends StatelessWidget {
+  MobileConsultationSection1({super.key});
 
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController middleNameController = TextEditingController();
@@ -32,78 +32,59 @@ class ConsultationSection1 extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: screenWidth / padding1),
+      padding: EdgeInsets.symmetric(horizontal: screenWidth / mobilePadding1),
       child: FadeIn(
         child: Column(
           children: [
-            Row(
-              children: [
-                Flexible(
-                  child: ConsultationTextField(
-                      controller: firstNameController,
-                      label: 'First Name*',
-                      hint: 'John'),
-                ),
-                const Gap(25),
-                Flexible(
-                    child: ConsultationTextField(
-                        controller: middleNameController,
-                        label: 'Middle Name',
-                        hint: '')),
-                const Gap(25),
-                Flexible(
-                    child: ConsultationTextField(
-                        controller: lastNameController,
-                        label: 'Last Name',
-                        hint: '')),
-              ],
-            ),
-            const Gap(gap),
+            ConsultationTextField(
+                controller: firstNameController,
+                label: 'First Name*',
+                hint: 'John'),
+            const Gap(mobileGap),
+            ConsultationTextField(
+                controller: middleNameController,
+                label: 'Middle Name',
+                hint: ''),
+            const Gap(mobileGap),
+            ConsultationTextField(
+                controller: lastNameController, label: 'Last Name', hint: ''),
+            const Gap(mobileGap),
             ConsultationTextField(
                 controller: contactNumberController,
                 label: 'Contact Number*',
                 hint: '(555) 555-1234'),
-            const Gap(gap),
+            const Gap(mobileGap),
             ConsultationTextField(
                 controller: emailAddressController,
                 label: 'Email Address*',
                 hint: 'Example@gmail.com'),
-            const Gap(gap),
+            const Gap(mobileGap),
             const ConsultationDob(),
-            const Gap(gap),
-            Row(
-              children: [
-                Flexible(
-                    child: ConsultationTextField(
-                        controller: cityController,
-                        label: 'City*',
-                        hint: 'Sydney')),
-                const Gap(gap),
-                Flexible(
-                  child: ConsultationTextField(
-                      controller: stateController,
-                      label: 'State/Provinces*',
-                      hint: 'New South Wales'),
-                ),
-              ],
-            ),
-            const Gap(gap),
+            const Gap(mobileGap),
+            ConsultationTextField(
+                controller: cityController, label: 'City*', hint: 'Sydney'),
+            const Gap(mobileGap),
+            ConsultationTextField(
+                controller: stateController,
+                label: 'State/Provinces*',
+                hint: 'New South Wales'),
+            const Gap(mobileGap),
             const PreferredLanguage(),
-            const Gap(gap),
+            const Gap(mobileGap),
             ConsultationTextField(
               controller: descriptionController,
               label: 'The Description*',
               hint: 'Lease Renewal',
               multiLines: true,
             ),
-            const Gap(gap),
+            const Gap(mobileGap),
             ConsultationTextField(
               controller: hearAboutUsController,
               label: 'How Did you hear about us*',
               hint: 'Friends',
               multiLines: true,
             ),
-            const Gap(gap),
+            const Gap(mobileGap),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -148,9 +129,9 @@ class ConsultationSection1 extends StatelessWidget {
                                 newState.language.isNotEmpty &&
                                 newState.dob.isNotEmpty) {
                               context
-                                  .read<ConsultationRoutingCubit>()
+                                  .read<MobileConsultationRoutingCubit>()
                                   .consultationRouting(
-                                      ConsultationSection2(), 2);
+                                      MobileConsultationSection2(), 2);
                             } else {
                               // You can show an alert or message to the user indicating that all fields are required
                             }

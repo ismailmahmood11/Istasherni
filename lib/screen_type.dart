@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:istasherni/Cubit/MobileScreen/screen_type_cubit.dart';
 import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
-import 'package:istasherni/UI/Screens/Consultation/consultation_screen.dart';
 import 'package:istasherni/UI/Screens/Landing_Page/Mobile/mobile_landing_page.dart';
+import 'package:istasherni/UI/Screens/Landing_Page/landing_page.dart';
 import 'package:istasherni/UI/widgets/MobileWidgets/mobile_app_bar.dart';
 import 'package:istasherni/UI/widgets/app_bar.dart';
+
+import 'UI/const.dart';
 
 class ScreenType extends StatefulWidget {
   const ScreenType({super.key});
@@ -15,8 +17,6 @@ class ScreenType extends StatefulWidget {
 }
 
 class _ScreenTypeState extends State<ScreenType> {
-  double mobileSize = 433;
-
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -28,7 +28,7 @@ class _ScreenTypeState extends State<ScreenType> {
     context.read<PageRoutingCubit>().currentPage(
         screenWidth < mobileSize
             ? const MobileLandingPage()
-            : const ConsultationScreen(),
+            : const LandingPage(),
         screenWidth < mobileSize ? 'MobileLandingPage' : 'LandingPage');
 
     return screenWidth < mobileSize ? MobileAppBar() : const AppBarMain();

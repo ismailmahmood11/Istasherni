@@ -48,6 +48,13 @@ dependencies:
   date_time_format: ^2.0.1
   dropdown_button2: ^2.3.9
 
+  js: ^0.6.3
+  http: ^1.2.1
+  webview_flutter: ^2.0.4
+  stripe_checkout: ^0.1.1
+  dio: ^5.5.0+1
+  emailjs: ^4.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

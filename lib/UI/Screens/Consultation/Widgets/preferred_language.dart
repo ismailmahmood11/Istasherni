@@ -16,11 +16,12 @@ class PreferredLanguage extends StatefulWidget {
 class _PreferredLanguageState extends State<PreferredLanguage> {
   bool isEnglish = true;
   bool isArabic = false;
+  bool isMobile = false;
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-
+    isMobile = screenWidth < mobileSize ? true : false;
     double h2 = screenWidth / pSize;
     double p;
     screenWidth >= 1300 ? p = 20 : p = screenWidth / pSize;
@@ -31,7 +32,7 @@ class _PreferredLanguageState extends State<PreferredLanguage> {
           'Preferred Language For Communication*',
           style: GoogleFonts.dmSerifDisplay(
             color: textColor,
-            fontSize: h2,
+            fontSize: isMobile ? mh2 : h2,
             fontWeight: FontWeight.w400,
           ),
         ),
@@ -44,7 +45,7 @@ class _PreferredLanguageState extends State<PreferredLanguage> {
                   'English',
                   style: GoogleFonts.dmSans(
                     color: textColor,
-                    fontSize: p,
+                    fontSize: isMobile ? mp : p,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -77,7 +78,7 @@ class _PreferredLanguageState extends State<PreferredLanguage> {
                   'Arabic',
                   style: GoogleFonts.dmSans(
                     color: textColor,
-                    fontSize: p,
+                    fontSize: isMobile ? mp : p,
                     fontWeight: FontWeight.w400,
                   ),
                 ),

@@ -18,7 +18,11 @@ class ConsultationDropDown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile;
+
     double screenWidth = MediaQuery.of(context).size.width;
+    isMobile = screenWidth < mobileSize ? true : false;
+
     double p = screenWidth / pSize;
     return Container(
       decoration: BoxDecoration(
@@ -31,12 +35,12 @@ class ConsultationDropDown extends StatelessWidget {
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton2<String>(
-          isExpanded: false,
+          isExpanded: isMobile ? true : false,
           hint: Text(
             'Choose Your Services*',
             style: GoogleFonts.dmSerifDisplay(
               color: textColor,
-              fontSize: p,
+              fontSize: isMobile ? mp : p,
               fontWeight: FontWeight.w400,
             ),
           ),
@@ -45,9 +49,10 @@ class ConsultationDropDown extends StatelessWidget {
                     value: item,
                     child: Text(
                       item,
+                      softWrap: true,
                       style: GoogleFonts.dmSans(
                         color: textColor,
-                        fontSize: p,
+                        fontSize: isMobile ? mp : p,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -59,7 +64,9 @@ class ConsultationDropDown extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.symmetric(horizontal: 16),
           ),
-          menuItemStyleData: const MenuItemStyleData(),
+          menuItemStyleData: const MenuItemStyleData(
+            customHeights: null,
+          ),
         ),
       ),
     );

@@ -14,6 +14,7 @@ class ConsultationSteps extends StatelessWidget {
     required this.no,
     required this.color,
     required this.noColor,
+    this.mobile = false,
   });
 
   final double screenWidth;
@@ -23,14 +24,16 @@ class ConsultationSteps extends StatelessWidget {
   String title;
   Color color;
   Color noColor;
+  bool mobile;
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          width: screenWidth / 23,
-          height: screenWidth / 23,
+          width: mobile ? 60 : screenWidth / 23,
+          height: mobile ? 60 : screenWidth / 23,
           decoration: BoxDecoration(
             color: const Color(0xFF333333),
             borderRadius: BorderRadius.circular(10000),
@@ -49,6 +52,7 @@ class ConsultationSteps extends StatelessWidget {
         const Gap(gap),
         Text(
           title,
+          textAlign: TextAlign.center,
           style: GoogleFonts.inter(
             color: color,
             fontSize: p,

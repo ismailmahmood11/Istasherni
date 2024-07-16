@@ -18,7 +18,10 @@ class ConsultationAppointmentDate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile;
+
     double screenWidth = MediaQuery.of(context).size.width;
+    isMobile = screenWidth < mobileSize ? true : false;
 
     double p = screenWidth / pSize;
     screenWidth >= 1300 ? p = 20 : p = screenWidth / pSize;
@@ -87,7 +90,7 @@ class ConsultationAppointmentDate extends StatelessWidget {
                               'Choose Appointment Date',
                               style: GoogleFonts.dmSerifDisplay(
                                 color: textColor,
-                                fontSize: p,
+                                fontSize: isMobile ? mp : p,
                                 fontWeight: FontWeight.w400,
                               ),
                             )
@@ -95,7 +98,7 @@ class ConsultationAppointmentDate extends StatelessWidget {
                               "Appointment Date: ${DateFormat('MMMM dd y').format(state.appointmentDateTime).toString()}",
                               style: GoogleFonts.dmSans(
                                 color: textColor,
-                                fontSize: 18,
+                                fontSize: isMobile ? mp : p,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),

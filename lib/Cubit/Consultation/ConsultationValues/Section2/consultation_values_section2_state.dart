@@ -5,10 +5,13 @@ class ConsultationValuesSection2Initial {
   String time;
   String date;
   int page;
+  String priceID;
 
-  ConsultationValuesSection2Initial(
-      {required this.service,
-      required this.time,
-      required this.date,
-      required this.page});
+  ConsultationValuesSection2Initial({
+    required this.service,
+    required this.time,
+    required this.date,
+    required this.page,
+    required this.priceID,
+  });
 }

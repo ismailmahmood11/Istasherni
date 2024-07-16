@@ -8,17 +8,19 @@ class ConsultationTextField extends StatelessWidget {
       required this.hint,
       this.multiLines = false,
       required this.controller,
+      this.isMobile = false,
       super.key});
 
   String label;
   String hint;
   bool multiLines = false;
   TextEditingController controller;
+  bool isMobile;
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-
+    isMobile = screenWidth < mobileSize ? true : false;
     double p = screenWidth / pSize;
     return TextField(
       controller: controller,
@@ -31,11 +33,11 @@ class ConsultationTextField extends StatelessWidget {
           label: Text(label),
           labelStyle: GoogleFonts.dmSerifDisplay(
             color: textColor,
-            fontSize: p,
+            fontSize: isMobile ? mp : p,
             fontWeight: FontWeight.w400,
             textStyle: GoogleFonts.dmSans(
               color: textColor,
-              fontSize: p,
+              fontSize: isMobile ? mp : p,
               fontWeight: FontWeight.w400,
             ),
           ),

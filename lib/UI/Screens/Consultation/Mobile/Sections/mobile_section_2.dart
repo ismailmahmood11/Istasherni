@@ -4,21 +4,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:istasherni/Cubit/Consultation/ConsultationRouting/consultation_routing_cubit.dart';
+import 'package:istasherni/Cubit/Consultation/ConsultationRouting/Mobile/mobile_consultation_routing_cubit.dart';
 import 'package:istasherni/Cubit/Consultation/ConsultationValues/Section2/consultation_values_section2_cubit.dart';
 import 'package:istasherni/Cubit/Consultation/Date%20Picker/date_picker_cubit.dart';
 import 'package:istasherni/Cubit/Total/total_cubit.dart';
-import 'package:istasherni/UI/Screens/Consultation/Sections/consultation_section_1.dart';
+import 'package:istasherni/UI/Screens/Consultation/Mobile/Sections/mobile_section_3.dart';
 import 'package:istasherni/UI/Screens/Consultation/Widgets/consultation_drop_down.dart';
 import 'package:istasherni/UI/const.dart';
 
-import '../../Landing_Page/widgets/main_button.dart';
-import '../Widgets/consultation_appointment_date.dart';
-import '../Widgets/consultation_text_field.dart';
-import 'consultation_section_3.dart';
+import '../../../Landing_Page/widgets/main_button.dart';
+import '../../Widgets/consultation_appointment_date.dart';
+import '../../Widgets/consultation_text_field.dart';
+import 'mobile_section_1.dart';
 
-class ConsultationSection2 extends StatelessWidget {
-  ConsultationSection2({super.key});
+class MobileConsultationSection2 extends StatelessWidget {
+  MobileConsultationSection2({super.key});
 
   String? selectedValue;
   final TextEditingController pagesController = TextEditingController();
@@ -33,8 +33,8 @@ class ConsultationSection2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double p = screenWidth / pSize;
-    double h2 = screenWidth / h2Size;
+    double p = mp;
+    double h2 = mh2;
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: screenWidth / padding1),
@@ -64,7 +64,7 @@ class ConsultationSection2 extends StatelessWidget {
                     value: state.service);
               },
             ),
-            const Gap(gap),
+            const Gap(mobileGap),
             BlocBuilder<ConsultationValuesSection2Cubit,
                 ConsultationValuesSection2Initial>(
               builder: (context, state) {
@@ -79,7 +79,7 @@ class ConsultationSection2 extends StatelessWidget {
                             label: 'Pages*',
                             hint: '10',
                           ),
-                          const Gap(gap),
+                          const Gap(mobileGap),
                         ],
                       )
                     : Container();
@@ -117,15 +117,17 @@ class ConsultationSection2 extends StatelessWidget {
                     value: state.time);
               },
             ),
-            const Gap(gap),
-            Text(
+            const Gap(mobileGap),
+            const Text(
               'Please Note: Same-day Appointments Are Not Available',
               style: TextStyle(
-                  fontSize: p, fontWeight: FontWeight.bold, color: Colors.grey),
+                  fontSize: mp,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey),
             ),
             const Gap(10),
             const ConsultationAppointmentDate(),
-            const Gap(gap),
+            const Gap(mobileGap),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -133,8 +135,8 @@ class ConsultationSection2 extends StatelessWidget {
                   title: 'Previous',
                   onTap: () {
                     context
-                        .read<ConsultationRoutingCubit>()
-                        .consultationRouting(ConsultationSection1(), 1);
+                        .read<MobileConsultationRoutingCubit>()
+                        .consultationRouting(MobileConsultationSection1(), 1);
                   },
                 ),
                 BlocBuilder<DatePickerCubit, DatePickerInitial>(
@@ -185,7 +187,6 @@ class ConsultationSection2 extends StatelessWidget {
                                     .read<ConsultationValuesSection2Cubit>()
                                     .priceID("price_1Pco3tCTbXBN9LA1dutMOrus");
                               }
-
                               if (state.service ==
                                       'Legal Translation (Arabic to English or English to Arabic) \$15 per page' ||
                                   state.service ==
@@ -213,9 +214,10 @@ class ConsultationSection2 extends StatelessWidget {
                                   }
 
                                   context
-                                      .read<ConsultationRoutingCubit>()
+                                      .read<MobileConsultationRoutingCubit>()
                                       .consultationRouting(
-                                          const ConsultationSection3(), 3);
+                                          const MobileConsultationSection3(),
+                                          3);
                                 } else {}
                               } else {
                                 print(state.time);
@@ -239,9 +241,9 @@ class ConsultationSection2 extends StatelessWidget {
                                 }
 
                                 context
-                                    .read<ConsultationRoutingCubit>()
+                                    .read<MobileConsultationRoutingCubit>()
                                     .consultationRouting(
-                                        const ConsultationSection3(), 3);
+                                        const MobileConsultationSection3(), 3);
                               }
                             } else {
                               // You can show an alert or message to the user indicating that all fields are required

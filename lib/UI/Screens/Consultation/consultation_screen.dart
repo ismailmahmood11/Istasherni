@@ -44,6 +44,7 @@ class ConsultationScreen extends StatelessWidget {
                     ConsultationRoutingInitial>(
                   builder: (context, state) {
                     return Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         ConsultationSteps(
