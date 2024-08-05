@@ -60,7 +60,7 @@ class Footer extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 15.0),
                       child: Text(
-                        'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molesti.',
+                        'a certified website that provides legal services for a nominal fee, serving international male and female students abroad, with scholarships, of all age groups and their families',
                         style: linkStyle,
                       ),
                     ),
@@ -69,8 +69,8 @@ class Footer extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(
-                          Ionicons.logo_facebook,
                           color: Colors.white,
+                          Ionicons.logo_facebook,
                         ),
                         Icon(
                           Ionicons.logo_linkedin,

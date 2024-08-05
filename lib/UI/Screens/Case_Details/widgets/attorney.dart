@@ -24,6 +24,10 @@ class AttorneyWidget extends StatelessWidget {
           decoration: const BoxDecoration(
             color: Colors.grey,
           ),
+          child: Image.asset(
+            'assets/images/People/marwa.png',
+            fit: BoxFit.cover,
+          ),
         ),
         const Gap(gap),
         Text(
@@ -35,7 +39,7 @@ class AttorneyWidget extends StatelessWidget {
           ),
         ),
         Text(
-          'Senior Business Lawyer',
+          'Lawyer',
           style: GoogleFonts.dmSans(
             color: textColor,
             fontSize: p,

@@ -44,10 +44,17 @@ class MobileClientsPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    'assets/images/People/marwa.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
               const Gap(gap),
               Text(
-                '28 years being an attorney',
+                '4 years being\nan Lawyer',
                 style: GoogleFonts.dmSerifDisplay(
                   color: textColor,
                   fontSize: h2 + 4,
@@ -74,7 +81,7 @@ class MobileClientsPage extends StatelessWidget {
               ),
               const Gap(15),
               Text(
-                'Lead cases to success',
+                'Provided Ongoing Legal Support',
                 style: GoogleFonts.dmSans(
                   color: textColor,
                   fontSize: p,
@@ -83,7 +90,7 @@ class MobileClientsPage extends StatelessWidget {
               ),
               const Gap(15),
               Text(
-                'Raised Awareness',
+                'Improved Application Accuracy',
                 style: GoogleFonts.dmSans(
                   color: textColor,
                   fontSize: p,

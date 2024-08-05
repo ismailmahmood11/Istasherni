@@ -85,6 +85,38 @@ class MobileConsultationSection1 extends StatelessWidget {
               multiLines: true,
             ),
             const Gap(mobileGap),
+            BlocBuilder<MobileConsultationRoutingCubit,
+                MobileConsultationRoutingInitial>(
+              builder: (context, state) {
+                return Row(
+                  children: [
+                    Container(
+                      width: screenWidth - 60 - 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: state.sectionNotComplete
+                            ? Colors.redAccent.withOpacity(.1)
+                            : Colors.transparent,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Please verify that all fields are correctly filled and complete.',
+                          style: TextStyle(
+                            color: state.sectionNotComplete
+                                ? Colors.redAccent
+                                : Colors.transparent,
+                            fontWeight: FontWeight.bold,
+                            fontSize: mp,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+            const Gap(mobileGap),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -132,7 +164,13 @@ class MobileConsultationSection1 extends StatelessWidget {
                                   .read<MobileConsultationRoutingCubit>()
                                   .consultationRouting(
                                       MobileConsultationSection2(), 2);
+                              context
+                                  .read<MobileConsultationRoutingCubit>()
+                                  .sectionNotComplete(false);
                             } else {
+                              context
+                                  .read<MobileConsultationRoutingCubit>()
+                                  .sectionNotComplete(true);
                               // You can show an alert or message to the user indicating that all fields are required
                             }
                           },

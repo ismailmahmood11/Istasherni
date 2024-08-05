@@ -26,16 +26,24 @@ class ConsultationSection1 extends StatelessWidget {
   final TextEditingController stateController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController hearAboutUsController = TextEditingController();
+  final ScrollController scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+
+    double screenPadding = screenWidth / padding1;
+    double doubleScreenPadding = screenPadding + screenPadding;
+    double sectionSize = doubleScreenPadding * 2;
+
+    double p = screenWidth / pSize;
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: screenWidth / padding1),
       child: FadeIn(
         child: Column(
           children: [
+            const Gap(20),
             Row(
               children: [
                 Flexible(
@@ -104,6 +112,37 @@ class ConsultationSection1 extends StatelessWidget {
               multiLines: true,
             ),
             const Gap(gap),
+            BlocBuilder<ConsultationRoutingCubit, ConsultationRoutingInitial>(
+              builder: (context, state) {
+                return Row(
+                  children: [
+                    Container(
+                      width: screenWidth - sectionSize,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: state.sectionNotComplete
+                            ? Colors.redAccent.withOpacity(.1)
+                            : Colors.transparent,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Please verify that all fields are correctly filled and complete.',
+                          style: TextStyle(
+                            color: state.sectionNotComplete
+                                ? Colors.redAccent
+                                : Colors.transparent,
+                            fontWeight: FontWeight.bold,
+                            fontSize: p,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+            const Gap(gap),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -151,7 +190,13 @@ class ConsultationSection1 extends StatelessWidget {
                                   .read<ConsultationRoutingCubit>()
                                   .consultationRouting(
                                       ConsultationSection2(), 2);
+                              context
+                                  .read<ConsultationRoutingCubit>()
+                                  .sectionNotComplete(false);
                             } else {
+                              context
+                                  .read<ConsultationRoutingCubit>()
+                                  .sectionNotComplete(true);
                               // You can show an alert or message to the user indicating that all fields are required
                             }
                           },

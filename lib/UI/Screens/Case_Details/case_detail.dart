@@ -100,7 +100,7 @@ class CaseDetail extends StatelessWidget {
                     ),
                     const Gap(sectionGap),
                     Text(
-                      'attorney in this case',
+                      'Lawyer in this case',
                       style: GoogleFonts.dmSerifDisplay(
                         color: textColor,
                         fontSize: h1,
@@ -112,13 +112,7 @@ class CaseDetail extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         AttorneyWidget(
-                          title: 'Nada Geomorgant',
-                        ),
-                        AttorneyWidget(
-                          title: 'Lydia Dary',
-                        ),
-                        AttorneyWidget(
-                          title: 'Laitman Harry',
+                          title: 'Marwa',
                         ),
                       ],
                     ),

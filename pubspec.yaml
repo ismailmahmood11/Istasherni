@@ -89,6 +89,9 @@ flutter:
     - assets/images/cases_Images/cases1.png
     - assets/images/cases_Images/cases2.png
     - assets/images/cases_Images/cases3.png
+    - assets/images/cases_Images/cases4.png
+    - assets/images/cases_Images/cases5.png
+    - assets/images/cases_Images/cases6.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

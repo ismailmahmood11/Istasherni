@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:istasherni/UI/Screens/Cases_Page/cases_page.dart';
+import 'package:istasherni/UI/Screens/Services/services.dart';
 
+import '../../../../Cubit/PageRouting/page_routing_cubit.dart';
+import '../../../Screens/Consultation/consultation_screen.dart';
 import '../../app_bar.dart';
 
 class FooterLinks {
@@ -15,19 +20,23 @@ List<FooterLinks> footerLinks = [
     heading: 'Services',
     link: [
       LinkText(
-        page: const AppBarMain(),
+        page: const Services(),
+        pageName: 'Services',
         link: 'Business Law',
       ),
       LinkText(
-        page: const AppBarMain(),
+        page: const Services(),
+        pageName: 'Services',
         link: 'Education Law',
       ),
       LinkText(
-        page: const AppBarMain(),
+        page: const Services(),
+        pageName: 'Services',
         link: 'Legal Consultant',
       ),
       LinkText(
-        page: const AppBarMain(),
+        page: const Services(),
+        pageName: 'Services',
         link: 'General Lawyer',
       ),
     ],
@@ -36,24 +45,19 @@ List<FooterLinks> footerLinks = [
     heading: 'Page',
     link: [
       LinkText(
-        page: const AppBarMain(),
-        link: 'Lawyer',
+        page: const Services(),
+        pageName: 'Services',
+        link: 'Services',
       ),
       LinkText(
-        page: const AppBarMain(),
-        link: 'Appointment',
+        page: const ConsultationScreen(),
+        pageName: "Consultation",
+        link: 'Consultation',
       ),
       LinkText(
-        page: const AppBarMain(),
-        link: 'Documentation',
-      ),
-      LinkText(
-        page: const AppBarMain(),
+        page: const CasesPage(),
+        pageName: 'CasesPage',
         link: 'Cases',
-      ),
-      LinkText(
-        page: const AppBarMain(),
-        link: 'News',
       ),
     ],
   ),
@@ -62,10 +66,12 @@ List<FooterLinks> footerLinks = [
     link: [
       LinkText(
         page: const AppBarMain(),
+        pageName: "Term of use",
         link: 'Term of use',
       ),
       LinkText(
         page: const AppBarMain(),
+        pageName: 'Privacy Policy',
         link: 'Privacy Policy',
       ),
     ],
@@ -76,9 +82,14 @@ List<FooterLinks> footerLinks = [
 
 //ignore: must_be_immutable
 class LinkText extends StatelessWidget {
-  LinkText({required this.page, required this.link, super.key});
+  LinkText(
+      {required this.page,
+      required this.link,
+      required this.pageName,
+      super.key});
 
   dynamic page;
+  String pageName;
   String link;
 
   @override
@@ -96,13 +107,14 @@ class LinkText extends StatelessWidget {
       padding: const EdgeInsets.only(top: 15.0),
       child: GestureDetector(
         onTap: () {
-          Navigator.push((context), MaterialPageRoute(builder: (context) {
-            return page;
-          }));
+          context.read<PageRoutingCubit>().currentPage(page, pageName);
         },
-        child: Text(
-          link,
-          style: linkStyle,
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: Text(
+            link,
+            style: linkStyle,
+          ),
         ),
       ),
     );

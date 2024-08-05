@@ -7,12 +7,27 @@ part 'mobile_consultation_routing_state.dart';
 class MobileConsultationRoutingCubit
     extends Cubit<MobileConsultationRoutingInitial> {
   MobileConsultationRoutingCubit()
-      : super(MobileConsultationRoutingInitial(
-            section: MobileConsultationSection1(), sectionNo: 1));
+      : super(
+          MobileConsultationRoutingInitial(
+            sectionNotComplete: false,
+            section: MobileConsultationSection1(),
+            sectionNo: 1,
+          ),
+        );
 
-  void consultationRouting(var section, int sectionNo) =>
-      emit(MobileConsultationRoutingInitial(
-        section: section,
-        sectionNo: sectionNo,
-      ));
+  void consultationRouting(var section, int sectionNo) => emit(
+        MobileConsultationRoutingInitial(
+          section: section,
+          sectionNo: sectionNo,
+          sectionNotComplete: state.sectionNotComplete,
+        ),
+      );
+
+  void sectionNotComplete(bool notComplete) => emit(
+        MobileConsultationRoutingInitial(
+          section: state.section,
+          sectionNo: state.sectionNo,
+          sectionNotComplete: notComplete,
+        ),
+      );
 }

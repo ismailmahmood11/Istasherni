@@ -4,7 +4,6 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
 import 'package:istasherni/UI/Screens/Cases_Page/cases_page.dart';
-import 'package:istasherni/UI/Screens/Clients/clients.dart';
 import 'package:istasherni/UI/Screens/Landing_Page/landing_page.dart';
 import 'package:istasherni/UI/const.dart';
 import 'package:istasherni/UI/widgets/on_hover.dart';
@@ -64,9 +63,9 @@ class AppBarNavigationBar extends StatelessWidget {
                   state.pageName == 'ClientsPage' ? mainThemeColor : textColor,
               title: 'Clients',
               onTap: () {
-                context
-                    .read<PageRoutingCubit>()
-                    .currentPage(const ClientsPage(), 'ClientsPage');
+                // context
+                //     .read<PageRoutingCubit>()
+                //     .currentPage(const ClientsPage(), 'ClientsPage');
               },
             ),
           ],

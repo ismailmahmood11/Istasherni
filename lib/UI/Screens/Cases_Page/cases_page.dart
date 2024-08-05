@@ -124,12 +124,67 @@ class CasesPage extends StatelessWidget {
                       children: [
                         const Gap(70),
                         CaseWidget(
-                          image: 'assets/images/cases_Images/cases1.png',
-                          title:
-                              'The Case of William Accused Corruption of Money at Gony Bank',
+                          image: 'assets/images/cases_Images/cases4.png',
+                          title: 'Temporary Protection Status (TPS )',
                           subTitle:
-                              'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. ',
-                          onTap: () {},
+                              'Comprehensive Support for Temporary Protected Status (TPS) Applications',
+                          onTap: () {
+                            context
+                                .read<PageRoutingCubit>()
+                                .currentPage(const CaseDetail(), 'CaseDetail');
+                            context.read<CaseDetailsCubit>().caseDetails(
+                                  'Temporary Protection Status (TPS )',
+                                  "At Istasherni, we provided comprehensive support for individuals applying for Temporary Protected Status (TPS). Our services included personalized consultations to assess eligibility, assistance with completing and submitting necessary documentation, and guidance throughout the application process. We ensured that applicants understood their rights and obligations under TPS, offering legal advice and representation when needed. By streamlining the application process and offering continuous support, Istasherni helped numerous individuals secure TPS, providing them with temporary relief and protection.",
+                                  'assets/images/cases_Images/cases4.png',
+                                  'December, 11 2022 - January, 9 2023',
+                                );
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CaseWidget(
+                      image: 'assets/images/cases_Images/cases5.png',
+                      title: 'Immigrant visa',
+                      subTitle:
+                          "Expert Assistance for Immigrant Visa Applications",
+                      onTap: () {
+                        context
+                            .read<PageRoutingCubit>()
+                            .currentPage(const CaseDetail(), 'CaseDetail');
+                        context.read<CaseDetailsCubit>().caseDetails(
+                              'Immigrant visa',
+                              "At Istasherni, we provided expert assistance to individuals seeking immigrant visas. Our services included thorough consultations to determine eligibility, help with gathering and preparing necessary documentation, and step-by-step guidance throughout the visa application process. We offered legal advice to navigate complex immigration laws and represented clients in interactions with immigration authorities. By ensuring accurate and timely submissions, Istasherni helped many individuals successfully obtain their immigrant visas, facilitating their journey towards a new life.",
+                              'assets/images/cases_Images/cases5.png',
+                              'December, 11 2022 - January, 9 2023',
+                            );
+                      },
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        const Gap(70),
+                        CaseWidget(
+                          image: 'assets/images/cases_Images/cases6.png',
+                          title: 'Non immigrant visa',
+                          subTitle:
+                              'Specialized Support for Non-Immigrant Visa Applications',
+                          onTap: () {
+                            context
+                                .read<PageRoutingCubit>()
+                                .currentPage(const CaseDetail(), 'CaseDetail');
+                            context.read<CaseDetailsCubit>().caseDetails(
+                                  'Non immigrant visa',
+                                  "At Istasherni, we provided specialized support for individuals applying for non-immigrant visas. Our services included personalized consultations to assess visa eligibility, meticulous assistance with completing and submitting required documentation, and comprehensive guidance through each stage of the application process. We offered expert legal advice to navigate the complexities of visa regulations and represented clients in their interactions with immigration authorities. By ensuring accurate applications and timely submissions, Istasherni helped numerous individuals successfully obtain their non-immigrant visas, enabling them to achieve their short-term goals abroad.",
+                                  'assets/images/cases_Images/cases6.png',
+                                  'December, 11 2022 - January, 9 2023',
+                                );
+                          },
                         ),
                       ],
                     ),
@@ -162,7 +217,7 @@ class CasesPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '28 years being\nan Lawyer',
+                            '4 years being\nan Lawyer',
                             style: GoogleFonts.dmSerifDisplay(
                               color: textColor,
                               fontSize: h1,
@@ -172,14 +227,16 @@ class CasesPage extends StatelessWidget {
                           const Gap(10),
                           Container(
                             color: Colors.grey,
-                            width: screenHeight / 1.3,
+                            width: screenWidth / 2.3,
                             height: 3,
                           ),
                           const Gap(10),
                           Text('Lead cases to success', style: pointStyle),
                           Text('Raised Awareness', style: pointStyle),
-                          Text('Lead cases to success', style: pointStyle),
-                          Text('Raised Awareness', style: pointStyle)
+                          Text('Provided Ongoing Legal Support',
+                              style: pointStyle),
+                          Text('Improved Application Accuracy',
+                              style: pointStyle)
                         ],
                       ),
                     )

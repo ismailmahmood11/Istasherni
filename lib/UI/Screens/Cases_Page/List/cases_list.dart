@@ -25,7 +25,7 @@ List<CasesList> caseList = [
     date: 'December, 11 2022 - January, 9 2023',
   ),
   CasesList(
-    title: 'The Case of William Accused Corruption of Money at Gony Bank',
+    title: 'Establishing a New Company in the US',
     subTitle:
         " We provided our musician client with comprehensive guidance throughout the process of establishing her business, offering detailed consultations tailored to her new venture's needs. Our support ensured she navigated each step confidently, from initial planning to operational setup and beyond.",
     img: 'assets/images/cases_Images/cases2.png',
@@ -41,5 +41,30 @@ List<CasesList> caseList = [
     desc:
         'We submitted a green card application for our client and facilitated the establishment of her marriage in the US. Our comprehensive support ensured all legal requirements were met, providing peace of mind throughout the process. We guided her through documentation and interview preparation, ensuring she was well-prepared. Our dedicated team assisted in gathering and organizing all necessary paperwork. We provided continuous updates and clear communication. Our client felt supported and confident at every stage. We ensured a seamless and successful experience from start to finish.',
     date: 'assets/images/cases_Images/cases3.png',
+  ),
+  CasesList(
+    title: 'Temporary Protection Status (TPS )',
+    subTitle:
+        'Comprehensive Support for Temporary Protected Status (TPS) Applications',
+    img: 'assets/images/cases_Images/cases4.png',
+    desc:
+        'At Istasherni, we provided comprehensive support for individuals applying for Temporary Protected Status (TPS). Our services included personalized consultations to assess eligibility, assistance with completing and submitting necessary documentation, and guidance throughout the application process. We ensured that applicants understood their rights and obligations under TPS, offering legal advice and representation when needed. By streamlining the application process and offering continuous support, Istasherni helped numerous individuals secure TPS, providing them with temporary relief and protection.',
+    date: 'December, 11 2022 - January, 9 2023',
+  ),
+  CasesList(
+    title: 'Immigrant visa',
+    subTitle: 'Expert Assistance for Immigrant Visa Applications',
+    img: 'assets/images/cases_Images/cases5.png',
+    desc:
+        'At Istasherni, we provided expert assistance to individuals seeking immigrant visas. Our services included thorough consultations to determine eligibility, help with gathering and preparing necessary documentation, and step-by-step guidance throughout the visa application process. We offered legal advice to navigate complex immigration laws and represented clients in interactions with immigration authorities. By ensuring accurate and timely submissions, Istasherni helped many individuals successfully obtain their immigrant visas, facilitating their journey towards a new life.',
+    date: 'December, 11 2022 - January, 9 2023',
+  ),
+  CasesList(
+    title: 'Non immigrant visa',
+    subTitle: 'Specialized Support for Non-Immigrant Visa Applications',
+    img: 'assets/images/cases_Images/cases6.png',
+    desc:
+        'At Istasherni, we provided specialized support for individuals applying for non-immigrant visas. Our services included personalized consultations to assess visa eligibility, meticulous assistance with completing and submitting required documentation, and comprehensive guidance through each stage of the application process. We offered expert legal advice to navigate the complexities of visa regulations and represented clients in their interactions with immigration authorities. By ensuring accurate applications and timely submissions, Istasherni helped numerous individuals successfully obtain their non-immigrant visas, enabling them to achieve their short-term goals abroad.',
+    date: 'December, 11 2022 - January, 9 2023',
   ),
 ];

@@ -12,14 +12,21 @@ class ClientsWidget extends StatelessWidget {
     required this.h1,
     required this.h2,
     required this.p,
-    required this.isRight,
+    this.isRight = false,
+    required this.title,
+    required this.icon,
+    required this.para,
+    required this.location,
   });
 
   final double screenWidth;
   final double h1;
   final double h2;
   final double p;
-
+  String title;
+  String location;
+  String para;
+  IconData icon;
   bool isRight = false;
   double dividerHeight = 250;
 
@@ -36,7 +43,7 @@ class ClientsWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Governan Pte Ltd',
+                      title,
                       textAlign: TextAlign.center,
                       style: GoogleFonts.dmSerifDisplay(
                         color: textColor,
@@ -47,13 +54,13 @@ class ClientsWidget extends StatelessWidget {
                     const Gap(gap),
                     Row(
                       children: [
-                        const Icon(
-                          Icons.location_on_outlined,
+                        Icon(
+                          icon,
                           color: textColor,
                           weight: 10,
                         ),
                         Text(
-                          '+79 Mechanic Rd.Miami, FL 33125',
+                          location,
                           textAlign: TextAlign.center,
                           style: GoogleFonts.dmSans(
                             color: textColor,
@@ -67,7 +74,7 @@ class ClientsWidget extends StatelessWidget {
                     SizedBox(
                       width: 796,
                       child: Text(
-                        'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. Duis lectus gravida ultricies eleifend in pharetra faucibus orci sem. .\n\nCum mattis mollis odio gravida adipiscing. Facilisis scelerisque non lacinia tincidunt faucibus tortor vel. Erat risus etiam quam pretium ornare. Semper orci arcu pulvinar adipiscing pretium. Erat facilisis dis arcu senectus sit mi fermentum eu aliquam. Felis neque posuere pharetra porttitor lacinia proin pretium.',
+                        para,
                         style: GoogleFonts.dmSans(
                           color: textColor,
                           fontSize: p,
@@ -117,7 +124,7 @@ class ClientsWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Governan Pte Ltd',
+                      title,
                       textAlign: TextAlign.center,
                       style: GoogleFonts.dmSerifDisplay(
                         color: textColor,
@@ -128,13 +135,13 @@ class ClientsWidget extends StatelessWidget {
                     const Gap(gap),
                     Row(
                       children: [
-                        const Icon(
-                          Icons.location_on_outlined,
+                        Icon(
+                          icon,
                           color: textColor,
                           weight: 10,
                         ),
                         Text(
-                          '+79 Mechanic Rd.Miami, FL 33125',
+                          location,
                           textAlign: TextAlign.center,
                           style: GoogleFonts.dmSans(
                             color: textColor,
@@ -148,7 +155,7 @@ class ClientsWidget extends StatelessWidget {
                     SizedBox(
                       width: 796,
                       child: Text(
-                        'Lorem ipsum dolor sit amet consectetur. Commodo pulvinar molestie pellentesque urna libero velit porta. Velit pellentesque hac gravida pellentesque est semper. Duis lectus gravida ultricies eleifend in pharetra faucibus orci sem. .\n\nCum mattis mollis odio gravida adipiscing. Facilisis scelerisque non lacinia tincidunt faucibus tortor vel. Erat risus etiam quam pretium ornare. Semper orci arcu pulvinar adipiscing pretium. Erat facilisis dis arcu senectus sit mi fermentum eu aliquam. Felis neque posuere pharetra porttitor lacinia proin pretium.',
+                        para,
                         style: GoogleFonts.dmSans(
                           color: textColor,
                           fontSize: p,

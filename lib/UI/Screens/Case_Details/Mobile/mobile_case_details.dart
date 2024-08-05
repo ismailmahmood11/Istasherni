@@ -78,7 +78,7 @@ class MobileCaseDetails extends StatelessWidget {
                     ),
                     const Gap(gap),
                     Text(
-                      'Attorney in This Case',
+                      'Lawyer in this case',
                       style: GoogleFonts.dmSerifDisplay(
                         color: textColor,
                         fontSize: h2,
@@ -87,19 +87,13 @@ class MobileCaseDetails extends StatelessWidget {
                     ),
                     const Gap(gap),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         MobileAttorneyWidget(
                           h2: h2,
                           p: p,
-                          job: 'Senior Business Lawyer',
-                          name: 'Nada Geomorgant',
-                        ),
-                        MobileAttorneyWidget(
-                          h2: h2,
-                          p: p,
-                          job: 'Senior Business Lawyer',
-                          name: 'Nada Geomorgant',
+                          job: 'Lawyer',
+                          name: 'Marwa',
                         ),
                       ],
                     ),
