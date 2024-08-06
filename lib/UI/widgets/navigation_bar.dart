@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
 import 'package:istasherni/UI/Screens/Cases_Page/cases_page.dart';
 import 'package:istasherni/UI/Screens/Landing_Page/landing_page.dart';
+import 'package:istasherni/UI/Screens/Privacy%20Policy/privacy_policy.dart';
 import 'package:istasherni/UI/const.dart';
 import 'package:istasherni/UI/widgets/on_hover.dart';
 
@@ -59,15 +60,27 @@ class AppBarNavigationBar extends StatelessWidget {
             ),
             Gap(gapBetweenText),
             AppBarNavigationBarTexts(
-              color:
-                  state.pageName == 'ClientsPage' ? mainThemeColor : textColor,
-              title: 'Clients',
+              color: state.pageName == 'PrivacyPolicy'
+                  ? mainThemeColor
+                  : textColor,
+              title: 'Privacy Policy and Disclaimer',
               onTap: () {
-                // context
-                //     .read<PageRoutingCubit>()
-                //     .currentPage(const ClientsPage(), 'ClientsPage');
+                context
+                    .read<PageRoutingCubit>()
+                    .currentPage(const PrivacyPolicy(), 'PrivacyPolicy');
               },
             ),
+            // Gap(gapBetweenText),
+            // AppBarNavigationBarTexts(
+            //   color:
+            //       state.pageName == 'ClientsPage' ? mainThemeColor : textColor,
+            //   title: 'FAQ',
+            //   onTap: () {
+            //     // context
+            //     //     .read<PageRoutingCubit>()
+            //     //     .currentPage(const ClientsPage(), 'ClientsPage');
+            //   },
+            // ),
           ],
         );
       },

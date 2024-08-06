@@ -6,7 +6,7 @@ import 'package:istasherni/UI/Screens/Services/services.dart';
 
 import '../../../../Cubit/PageRouting/page_routing_cubit.dart';
 import '../../../Screens/Consultation/consultation_screen.dart';
-import '../../app_bar.dart';
+import '../../../Screens/Privacy Policy/privacy_policy.dart';
 
 class FooterLinks {
   String heading;
@@ -65,13 +65,13 @@ List<FooterLinks> footerLinks = [
     heading: 'Links',
     link: [
       LinkText(
-        page: const AppBarMain(),
-        pageName: "Term of use",
+        page: const PrivacyPolicy(),
+        pageName: "PrivacyPolicy",
         link: 'Term of use',
       ),
       LinkText(
-        page: const AppBarMain(),
-        pageName: 'Privacy Policy',
+        page: const PrivacyPolicy(),
+        pageName: 'PrivacyPolicy',
         link: 'Privacy Policy',
       ),
     ],
