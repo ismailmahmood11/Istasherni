@@ -54,6 +54,11 @@ dependencies:
   stripe_checkout: ^0.1.1
   dio: ^5.5.0+1
   emailjs: ^4.0.0
+  url_launcher: ^6.3.0
+  easy_url_launcher: ^0.0.7
+
+
+
 
 dev_dependencies:
   flutter_test:
@@ -81,8 +86,11 @@ flutter:
   assets:
     - assets/images/logo/istasherni_logo.png
     - assets/images/logo/istasherni_logo_white.png
+    - assets/images/logo/full_logo.png
     - assets/images/hero_image.png
     - assets/images/icons/quote.png
+    - assets/images/icons/x.png
+    - assets/images/icons/x_with_background.png
     - assets/images/logo/logo_simple.png
     - assets/images/People/person1.png
     - assets/images/People/marwa.png

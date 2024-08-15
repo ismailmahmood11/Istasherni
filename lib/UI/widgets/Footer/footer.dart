@@ -1,14 +1,27 @@
+import 'package:easy_url_launcher/easy_url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:istasherni/UI/widgets/Footer/Widgets/links_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../const.dart';
 import 'Lists/links_list.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
+
+  launchURL(String link) async {
+    final Uri url = Uri.parse(link);
+
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication, // Ensures URL opens externally
+    )) {
+      throw Exception('Could not launch $link');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,29 +78,46 @@ class Footer extends StatelessWidget {
                       ),
                     ),
                     const Gap(20),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(
-                          color: Colors.white,
-                          Ionicons.logo_facebook,
+                        GestureDetector(
+                          onTap: () async {
+                            await EasyLauncher.url(
+                                url:
+                                    "https://www.facebook.com/share/HrAUPKMtzH8R1MJM/?mibextid=LQQJ4d");
+                          },
+                          child: const Icon(
+                            color: Colors.white,
+                            Ionicons.logo_facebook,
+                          ),
                         ),
-                        Icon(
-                          Ionicons.logo_linkedin,
-                          color: Colors.white,
+                        GestureDetector(
+                          onTap: () async {
+                            await EasyLauncher.url(
+                                url:
+                                    "https://www.linkedin.com/company/istasherni-with-marwa/");
+                          },
+                          child: const Icon(
+                            Ionicons.logo_linkedin,
+                            color: Colors.white,
+                          ),
                         ),
-                        Icon(
-                          Ionicons.logo_twitter,
-                          color: Colors.white,
+                        GestureDetector(
+                          onTap: () async {
+                            await EasyLauncher.url(
+                                url:
+                                    "https://x.com/marwaalwadai?s=21&t=SsvtmMNYxC86bN4I_ITTqw");
+                          },
+                          child: Image.asset(
+                            'assets/images/icons/x.png',
+                            width: 20,
+                          ),
                         ),
-                        Icon(
-                          Ionicons.logo_instagram,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
+                        const SizedBox(
                           width: 1,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 1,
                         )
                       ],
@@ -115,7 +145,7 @@ class Footer extends StatelessWidget {
                         ),
                         const Gap(10),
                         Text(
-                          '+22 7272 8282',
+                          '+1 800-831-1613',
                           style: linkStyle,
                         ),
                       ],
@@ -129,7 +159,7 @@ class Footer extends StatelessWidget {
                         ),
                         const Gap(10),
                         Text(
-                          '+7889 Mechanic\nRd.Miami, FL 33125',
+                          'Online',
                           style: linkStyle,
                         ),
                       ],

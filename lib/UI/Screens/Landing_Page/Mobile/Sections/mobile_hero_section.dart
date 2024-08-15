@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../const.dart';
 import '../../../../widgets/MobileWidgets/mobile_button.dart';
@@ -80,6 +81,14 @@ class MobileHeroSection extends StatelessWidget {
                     color: Colors.black54,
                     fontSize: p,
                     fontWeight: FontWeight.w900,
+                  ),
+                ),
+                Text(
+                  'Office Hours\nMonday - Friday\n(9AM - 6PM)\n\nEastern Standard Time (Florida, United States)',
+                  style: GoogleFonts.inter(
+                    color: textColor,
+                    fontSize: p,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 MobileButton(

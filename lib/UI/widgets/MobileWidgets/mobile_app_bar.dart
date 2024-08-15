@@ -4,11 +4,11 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:istasherni/UI/Screens/Cases_Page/Mobile/mobile_cases_page.dart';
 import 'package:istasherni/UI/Screens/Landing_Page/Mobile/mobile_landing_page.dart';
+import 'package:istasherni/UI/Screens/Privacy%20Policy/Mobile/mobile_privacy_policy.dart';
 import 'package:istasherni/UI/Screens/Services/Mobile/mobile_services.dart';
 
 import '../../../Cubit/PageRouting/page_routing_cubit.dart';
 import '../../../Cubit/SrollPosition/scroll_position_cubit.dart';
-import '../../Screens/Clients/Mobile/mobile_clients_page.dart';
 import '../../const.dart';
 import 'mobile_navbar.dart';
 
@@ -160,11 +160,12 @@ class MobileAppBar extends StatelessWidget {
                                                     ),
                                                     const SizedBox(width: 23),
                                                     MobileNavbarWidgets(
-                                                      title: 'Clients',
+                                                      title:
+                                                          'Privacy Policy\n& Disclaimer',
                                                       style:
                                                           navBarStyle.copyWith(
                                                         color: state.pageName ==
-                                                                'MobileClientsPage'
+                                                                'PrivacyPolicyMobile'
                                                             ? mainThemeColor
                                                             : textColor,
                                                       ),
@@ -173,8 +174,8 @@ class MobileAppBar extends StatelessWidget {
                                                             .read<
                                                                 PageRoutingCubit>()
                                                             .currentPage(
-                                                                const MobileClientsPage(),
-                                                                'MobileClientsPage');
+                                                                const MobilePrivacyPolicy(),
+                                                                'PrivacyPolicyMobile');
                                                         context
                                                             .read<
                                                                 PageRoutingCubit>()
@@ -205,8 +206,9 @@ class MobileAppBar extends StatelessWidget {
                                             context
                                                 .read<PageRoutingCubit>()
                                                 .currentPage(
-                                                    const MobileLandingPage(),
-                                                    'MobileLandingPage');
+                                                  const MobileLandingPage(),
+                                                  'MobileLandingPage',
+                                                );
                                           },
                                           child: Image.asset(
                                             'assets/images/logo/logo_simple.png',

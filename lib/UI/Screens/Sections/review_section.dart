@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:istasherni/UI/Screens/Landing_Page/widgets/main_button.dart';
 
 import '../../const.dart';
 
@@ -126,6 +127,11 @@ class ReviewSection extends StatelessWidget {
                             ),
                           ),
                           const Gap(20),
+                          MainButton(
+                              title: 'See More >',
+                              onTap: () {
+                                Navigator.pushNamed(context, '/reviews');
+                              })
                         ],
                       ),
                     ),

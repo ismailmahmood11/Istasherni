@@ -9,6 +9,7 @@ import 'package:istasherni/UI/Screens/Privacy%20Policy/privacy_policy.dart';
 import 'package:istasherni/UI/const.dart';
 import 'package:istasherni/UI/widgets/on_hover.dart';
 
+import '../Screens/FAQ/faq.dart';
 import '../Screens/Services/services.dart';
 
 //ignore: must_be_immutable
@@ -63,11 +64,21 @@ class AppBarNavigationBar extends StatelessWidget {
               color: state.pageName == 'PrivacyPolicy'
                   ? mainThemeColor
                   : textColor,
-              title: 'Privacy Policy and Disclaimer',
+              title: 'Privacy Policy & Disclaimer',
               onTap: () {
                 context
                     .read<PageRoutingCubit>()
                     .currentPage(const PrivacyPolicy(), 'PrivacyPolicy');
+              },
+            ),
+            Gap(gapBetweenText),
+            AppBarNavigationBarTexts(
+              color: state.pageName == 'FAQ' ? mainThemeColor : textColor,
+              title: 'FAQ',
+              onTap: () {
+                context
+                    .read<PageRoutingCubit>()
+                    .currentPage(const Faq(), 'FAQ');
               },
             ),
             // Gap(gapBetweenText),

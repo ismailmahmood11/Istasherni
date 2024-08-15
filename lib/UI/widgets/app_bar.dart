@@ -76,8 +76,8 @@ class AppBarMain extends StatelessWidget {
                               .currentPage(const LandingPage(), 'LandingPage');
                         },
                         child: Image.asset(
-                          'assets/images/logo/istasherni_logo.png',
-                          width: 180,
+                          'assets/images/logo/full_logo.png',
+                          width: 250,
                         ),
                       ),
                       AppBarNavigationBar(),
