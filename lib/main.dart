@@ -5,6 +5,7 @@ import 'package:istasherni/Cubit/Consultation/ConsultationRouting/consultation_r
 import 'package:istasherni/Cubit/Consultation/ConsultationValues/Section1/consultation_values_section1_cubit.dart';
 import 'package:istasherni/Cubit/Consultation/ConsultationValues/Section2/consultation_values_section2_cubit.dart';
 import 'package:istasherni/Cubit/Consultation/Date%20Picker/date_picker_cubit.dart';
+import 'package:istasherni/Cubit/Language%20Selector/language_cubit.dart';
 import 'package:istasherni/Cubit/MobileScreen/screen_type_cubit.dart';
 import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
 import 'package:istasherni/Cubit/SrollPosition/scroll_position_cubit.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => ScrollPositionCubit()),
+        BlocProvider(create: (context) => LanguageCubit()),
         BlocProvider(create: (context) => PageRoutingCubit()),
         BlocProvider(create: (context) => ScreenTypeCubit()),
         BlocProvider(create: (context) => CaseDetailsCubit()),

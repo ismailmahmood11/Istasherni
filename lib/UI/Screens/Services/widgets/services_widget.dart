@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -10,20 +11,25 @@ class ServicesWidget extends StatelessWidget {
     required this.p,
     required this.title,
     required this.para,
+    this.align = TextAlign.start,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
   });
 
   final double h1;
   final double p;
   String title;
   String para;
+  TextAlign align;
+  CrossAxisAlignment crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: crossAxisAlignment,
       children: [
         Text(
           title,
+          textAlign: align,
           style: TextStyle(
             color: textColor,
             fontSize: h1,
@@ -35,6 +41,7 @@ class ServicesWidget extends StatelessWidget {
           width: 878,
           child: Text(
             para,
+            textAlign: align,
             style: TextStyle(
               color: textColor,
               fontSize: p,

@@ -1,10 +1,11 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gap/gap.dart';
 import 'package:istasherni/Cubit/PageRouting/page_routing_cubit.dart';
 import 'package:istasherni/Cubit/SrollPosition/scroll_position_cubit.dart';
 import 'package:istasherni/UI/Screens/Landing_Page/landing_page.dart';
 
+import '../../Cubit/Language Selector/language_cubit.dart';
 import '../const.dart';
 import 'navigation_bar.dart';
 
@@ -84,28 +85,73 @@ class AppBarMain extends StatelessWidget {
                       Container(
                         height: 40,
                         decoration: ShapeDecoration(
-                          color: textColor,
+                          color: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(50),
                           ),
                         ),
-                        child: const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           child: Center(
-                            child: Row(
-                              children: [
-                                Icon(Icons.phone,
-                                    color: Colors.white, size: 17),
-                                Gap(7),
-                                Text(
-                                  'Call us',
-                                  style: TextStyle(
-                                    color: Color(0xFFFAFAFA),
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
+                            child: BlocBuilder<LanguageCubit, LanguageInitial>(
+                              builder: (context, state) {
+                                return FadeIn(
+                                  child: Row(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          if (state.language == 'ar') {
+                                            context
+                                                .read<LanguageCubit>()
+                                                .languageSelector('en');
+                                          } else {
+                                            context
+                                                .read<LanguageCubit>()
+                                                .languageSelector('ar');
+                                          }
+                                        },
+                                        child: Text(
+                                          state.language == "ar" ? "EN" : 'AR',
+                                          style: const TextStyle(
+                                            color: textColor,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                      const Text(
+                                        '  /  ',
+                                        style: TextStyle(
+                                          color: textColor,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          if (state.language == 'es') {
+                                            context
+                                                .read<LanguageCubit>()
+                                                .languageSelector('en');
+                                          } else {
+                                            context
+                                                .read<LanguageCubit>()
+                                                .languageSelector('es');
+                                          }
+                                        },
+                                        child: Text(
+                                          state.language == "es" ? 'EN' : 'ES',
+                                          style: const TextStyle(
+                                            color: textColor,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                              ],
+                                );
+                              },
                             ),
                           ),
                         ),
